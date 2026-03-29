@@ -1,0 +1,473 @@
+{
+  "job_id": "qa_subway_test",
+  "lang": "vi",
+  "job_dir": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test",
+  "completed_modules": [
+    "tts_engine",
+    "card_renderer",
+    "video_assembler",
+    "meme_engine",
+    "scraper",
+    "caption_sync"
+  ],
+  "source": {
+    "platform": "manual",
+    "manual_json_path": "output/jobs/qa_e2e/manual_input.json",
+    "topic": {
+      "text": "Sếp bạn từng làm gì khiến bạn ngạc nhiên nhất?",
+      "author": "@vietlife",
+      "likes": "12.4K",
+      "card_type": "topic",
+      "card_path": "output/jobs/qa_subway_test/cards/topic.png",
+      "audio_path": "output/jobs/qa_subway_test/audio/topic.mp3",
+      "audio_duration": 2.62,
+      "timestamps": [
+        {
+          "word": "Sếp",
+          "start": 0.125,
+          "end": 0.325
+        },
+        {
+          "word": "bạn",
+          "start": 0.325,
+          "end": 0.575
+        },
+        {
+          "word": "từng",
+          "start": 0.575,
+          "end": 0.775
+        },
+        {
+          "word": "làm",
+          "start": 0.775,
+          "end": 0.988
+        },
+        {
+          "word": "gì",
+          "start": 0.988,
+          "end": 1.225
+        },
+        {
+          "word": "khiến",
+          "start": 1.225,
+          "end": 1.463
+        },
+        {
+          "word": "bạn",
+          "start": 1.462,
+          "end": 1.662
+        },
+        {
+          "word": "ngạc",
+          "start": 1.663,
+          "end": 1.9
+        },
+        {
+          "word": "nhiên",
+          "start": 1.9,
+          "end": 2.087
+        },
+        {
+          "word": "nhất",
+          "start": 2.087,
+          "end": 2.325
+        }
+      ]
+    },
+    "comments": [
+      {
+        "id": "c001",
+        "author": "@nguyen_van_a",
+        "text": "Sếp tôi tự tay rửa bát cho cả team sau bữa tiệc tất niên. Ai cũng ngạc nhiên.",
+        "likes": "3.2K",
+        "sentiment": "POS",
+        "emotion": "surprise",
+        "card_path": "output/jobs/qa_subway_test/cards/c001.png",
+        "audio_path": "output/jobs/qa_subway_test/audio/c001.mp3",
+        "audio_duration": 5.42,
+        "timestamps": [
+          {
+            "word": "Sếp",
+            "start": 0.125,
+            "end": 0.35
+          },
+          {
+            "word": "tôi",
+            "start": 0.35,
+            "end": 0.55
+          },
+          {
+            "word": "tự",
+            "start": 0.55,
+            "end": 0.788
+          },
+          {
+            "word": "tay",
+            "start": 0.787,
+            "end": 1.038
+          },
+          {
+            "word": "rửa",
+            "start": 1.038,
+            "end": 1.238
+          },
+          {
+            "word": "bát",
+            "start": 1.238,
+            "end": 1.463
+          },
+          {
+            "word": "cho",
+            "start": 1.462,
+            "end": 1.662
+          },
+          {
+            "word": "cả",
+            "start": 1.663,
+            "end": 1.85
+          },
+          {
+            "word": "team",
+            "start": 1.85,
+            "end": 2.1
+          },
+          {
+            "word": "sau",
+            "start": 2.1,
+            "end": 2.337
+          },
+          {
+            "word": "bữa",
+            "start": 2.337,
+            "end": 2.525
+          },
+          {
+            "word": "tiệc",
+            "start": 2.525,
+            "end": 2.75
+          },
+          {
+            "word": "tất",
+            "start": 2.75,
+            "end": 2.95
+          },
+          {
+            "word": "niên",
+            "start": 2.95,
+            "end": 3.25
+          },
+          {
+            "word": "Ai",
+            "start": 4.112,
+            "end": 4.312
+          },
+          {
+            "word": "cũng",
+            "start": 4.312,
+            "end": 4.55
+          },
+          {
+            "word": "ngạc",
+            "start": 4.55,
+            "end": 4.812
+          },
+          {
+            "word": "nhiên",
+            "start": 4.812,
+            "end": 5.125
+          }
+        ],
+        "meme_clip": "",
+        "sfx": ""
+      },
+      {
+        "id": "c002",
+        "author": "@tran_thi_b",
+        "text": "Boss của mình tự đi mua cơm cho cả phòng khi làm thêm giờ. Không ai dám tin.",
+        "likes": "2.1K",
+        "sentiment": "NEU",
+        "emotion": "neutral",
+        "card_path": "output/jobs/qa_subway_test/cards/c002.png",
+        "audio_path": "output/jobs/qa_subway_test/audio/c002.mp3",
+        "audio_duration": 5.4,
+        "timestamps": [
+          {
+            "word": "Boss",
+            "start": 0.138,
+            "end": 0.325
+          },
+          {
+            "word": "của",
+            "start": 0.325,
+            "end": 0.45
+          },
+          {
+            "word": "mình",
+            "start": 0.45,
+            "end": 0.713
+          },
+          {
+            "word": "tự",
+            "start": 0.713,
+            "end": 0.938
+          },
+          {
+            "word": "đi",
+            "start": 0.938,
+            "end": 1.087
+          },
+          {
+            "word": "mua",
+            "start": 1.087,
+            "end": 1.287
+          },
+          {
+            "word": "cơm",
+            "start": 1.288,
+            "end": 1.588
+          },
+          {
+            "word": "cho",
+            "start": 1.587,
+            "end": 1.762
+          },
+          {
+            "word": "cả",
+            "start": 1.762,
+            "end": 1.95
+          },
+          {
+            "word": "phòng",
+            "start": 1.95,
+            "end": 2.225
+          },
+          {
+            "word": "khi",
+            "start": 2.225,
+            "end": 2.4
+          },
+          {
+            "word": "làm",
+            "start": 2.4,
+            "end": 2.663
+          },
+          {
+            "word": "thêm",
+            "start": 2.663,
+            "end": 2.9
+          },
+          {
+            "word": "giờ",
+            "start": 2.9,
+            "end": 3.212
+          },
+          {
+            "word": "Không",
+            "start": 4.075,
+            "end": 4.312
+          },
+          {
+            "word": "ai",
+            "start": 4.312,
+            "end": 4.5
+          },
+          {
+            "word": "dám",
+            "start": 4.5,
+            "end": 4.775
+          },
+          {
+            "word": "tin",
+            "start": 4.775,
+            "end": 5.1
+          }
+        ],
+        "meme_clip": "",
+        "sfx": ""
+      },
+      {
+        "id": "c003",
+        "author": "@le_van_c",
+        "text": "Sếp cũ của tôi tự viết thư tay cảm ơn từng nhân viên cuối năm. Rất xúc động.",
+        "likes": "1.8K",
+        "sentiment": "POS",
+        "emotion": "surprise",
+        "card_path": "output/jobs/qa_subway_test/cards/c003.png",
+        "audio_path": "output/jobs/qa_subway_test/audio/c003.mp3",
+        "audio_duration": 5.36,
+        "timestamps": [
+          {
+            "word": "Sếp",
+            "start": 0.125,
+            "end": 0.35
+          },
+          {
+            "word": "cũ",
+            "start": 0.35,
+            "end": 0.55
+          },
+          {
+            "word": "của",
+            "start": 0.55,
+            "end": 0.725
+          },
+          {
+            "word": "tôi",
+            "start": 0.725,
+            "end": 0.975
+          },
+          {
+            "word": "tự",
+            "start": 0.975,
+            "end": 1.2
+          },
+          {
+            "word": "viết",
+            "start": 1.2,
+            "end": 1.438
+          },
+          {
+            "word": "thư",
+            "start": 1.438,
+            "end": 1.587
+          },
+          {
+            "word": "tay",
+            "start": 1.587,
+            "end": 1.825
+          },
+          {
+            "word": "cảm",
+            "start": 1.825,
+            "end": 2.062
+          },
+          {
+            "word": "ơn",
+            "start": 2.062,
+            "end": 2.288
+          },
+          {
+            "word": "từng",
+            "start": 2.288,
+            "end": 2.488
+          },
+          {
+            "word": "nhân",
+            "start": 2.487,
+            "end": 2.688
+          },
+          {
+            "word": "viên",
+            "start": 2.688,
+            "end": 2.938
+          },
+          {
+            "word": "cuối",
+            "start": 2.938,
+            "end": 3.125
+          },
+          {
+            "word": "năm",
+            "start": 3.125,
+            "end": 3.462
+          },
+          {
+            "word": "Rất",
+            "start": 4.325,
+            "end": 4.463
+          },
+          {
+            "word": "xúc",
+            "start": 4.463,
+            "end": 4.75
+          },
+          {
+            "word": "động",
+            "start": 4.75,
+            "end": 5.062
+          }
+        ],
+        "meme_clip": "",
+        "sfx": ""
+      }
+    ]
+  },
+  "background": {
+    "file": "assets/backgrounds/subway-surfer/part00.mp4"
+  },
+  "video": {
+    "output_path": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4"
+  },
+  "cfg": {
+    "device": "mps",
+    "video_width": 1080,
+    "video_height": 1920,
+    "video_fps": 30,
+    "video_bitrate": "8M",
+    "tts_provider": "edge_tts",
+    "voice_vi": "vi-VN-HoaiMyNeural",
+    "voice_en": "en-US-AriaNeural",
+    "bgm_volume": 0.12,
+    "sfx_volume": 0.8,
+    "max_comments": 5,
+    "min_comment_length": 30,
+    "whisper_device": "cpu",
+    "whisper_model_size": "tiny",
+    "meme_cooldown_videos": 5,
+    "assets_dir": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/assets",
+    "output_dir": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output",
+    "ffmpeg_encode_codec": "h264_videotoolbox",
+    "ffmpeg_encode_quality": "65"
+  },
+  "captions": {
+    "ass_path": "output/jobs/qa_subway_test/captions/captions.ass"
+  },
+  "timeline": [
+    {
+      "type": "topic",
+      "start": 0.0,
+      "end": 3.12,
+      "card_path": "output/jobs/qa_subway_test/cards/topic.png",
+      "audio_path": "output/jobs/qa_subway_test/audio/topic.mp3",
+      "duration": 3.12
+    },
+    {
+      "type": "comment",
+      "id": "c001",
+      "start": 3.12,
+      "end": 9.04,
+      "card_path": "output/jobs/qa_subway_test/cards/c001.png",
+      "audio_path": "output/jobs/qa_subway_test/audio/c001.mp3",
+      "duration": 5.92
+    },
+    {
+      "type": "comment",
+      "id": "c002",
+      "start": 9.04,
+      "end": 14.94,
+      "card_path": "output/jobs/qa_subway_test/cards/c002.png",
+      "audio_path": "output/jobs/qa_subway_test/audio/c002.mp3",
+      "duration": 5.9
+    },
+    {
+      "type": "comment",
+      "id": "c003",
+      "start": 14.94,
+      "end": 20.8,
+      "card_path": "output/jobs/qa_subway_test/cards/c003.png",
+      "audio_path": "output/jobs/qa_subway_test/audio/c003.mp3",
+      "duration": 5.86
+    },
+    {
+      "type": "outro",
+      "start": 20.8,
+      "end": 23.8,
+      "duration": 3.0
+    }
+  ],
+  "output": {
+    "path": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4",
+    "size_mb": 23.1,
+    "duration": 23.8
+  }
+}

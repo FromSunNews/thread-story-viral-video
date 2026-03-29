@@ -1,0 +1,174 @@
+2026-03-29 05:39:59 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:39:59 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:39:59 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:39:59 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-29 05:39:59 | INFO     | [RUN ] scraper ...
+2026-03-29 05:39:59 | ERROR    | [FAIL] scraper raised an error: 'source'
+2026-03-29 05:39:59 | DEBUG    | Traceback (most recent call last):
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 234, in main
+    result = run_module(module_name, video_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 69, in run_module
+    result = mod.run(video_config)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/modules/scraper.py", line 333, in run
+    source = config["source"]
+             ~~~~~~^^^^^^^^^^
+KeyError: 'source'
+
+2026-03-29 05:40:05 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:40:05 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:40:05 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:40:05 | INFO     | Pipeline: scraper
+2026-03-29 05:40:05 | INFO     | [RUN ] scraper ...
+2026-03-29 05:40:05 | ERROR    | [FAIL] scraper raised an error: 'source'
+2026-03-29 05:40:05 | DEBUG    | Traceback (most recent call last):
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 234, in main
+    result = run_module(module_name, video_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 69, in run_module
+    result = mod.run(video_config)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/modules/scraper.py", line 333, in run
+    source = config["source"]
+             ~~~~~~^^^^^^^^^^
+KeyError: 'source'
+
+2026-03-29 05:40:33 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:40:33 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:40:33 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:40:33 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-29 05:40:33 | INFO     | [RUN ] scraper ...
+2026-03-29 05:40:33 | INFO     | Scraping platform: manual
+2026-03-29 05:40:33 | INFO     | Scraped 3 comments
+2026-03-29 05:40:33 | SUCCESS  | [DONE] scraper
+2026-03-29 05:40:33 | INFO     | [RUN ] card_renderer ...
+2026-03-29 05:40:33 | INFO     | Rendering 4 cards (Threads UI style)...
+2026-03-29 05:40:33 | INFO     | Fetching avatar images...
+2026-03-29 05:40:34 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/topic.png
+2026-03-29 05:40:35 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c001.png
+2026-03-29 05:40:35 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c002.png
+2026-03-29 05:40:35 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c003.png
+2026-03-29 05:40:35 | INFO     | Rendered 4 cards to output/jobs/qa_subway_test/cards
+2026-03-29 05:40:35 | SUCCESS  | [DONE] card_renderer
+2026-03-29 05:40:35 | INFO     | [RUN ] tts_engine ...
+2026-03-29 05:40:35 | INFO     | Starting TTS generation...
+2026-03-29 05:40:35 | INFO     | TTS: topic (46 chars)
+2026-03-29 05:40:36 | INFO     | TTS: c001 (77 chars)
+2026-03-29 05:40:37 | DEBUG    |   -> c001: 5.4s, 18 words
+2026-03-29 05:40:37 | INFO     | TTS: c002 (76 chars)
+2026-03-29 05:40:38 | DEBUG    |   -> c002: 5.4s, 18 words
+2026-03-29 05:40:38 | INFO     | TTS: c003 (76 chars)
+2026-03-29 05:40:38 | DEBUG    |   -> c003: 5.4s, 18 words
+2026-03-29 05:40:38 | INFO     | TTS complete: 3/3 comments
+2026-03-29 05:40:38 | SUCCESS  | [DONE] tts_engine
+2026-03-29 05:40:38 | INFO     | [RUN ] caption_sync ...
+2026-03-29 05:40:38 | INFO     | Building karaoke captions...
+2026-03-29 05:40:38 | INFO     | Caption file written: output/jobs/qa_subway_test/captions/captions.ass (14 dialogue lines)
+2026-03-29 05:40:38 | SUCCESS  | [DONE] caption_sync
+2026-03-29 05:40:38 | INFO     | [RUN ] meme_engine ...
+2026-03-29 05:40:38 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-29 05:40:38 | DEBUG    |   c001: POS/surprise → meme=none
+2026-03-29 05:40:38 | DEBUG    |   c002: NEU/neutral → meme=none
+2026-03-29 05:40:38 | DEBUG    |   c003: POS/surprise → meme=none
+2026-03-29 05:40:38 | INFO     | Meme/SFX assigned to 3 comments
+2026-03-29 05:40:38 | SUCCESS  | [DONE] meme_engine
+2026-03-29 05:40:38 | INFO     | [RUN ] video_assembler ...
+2026-03-29 05:40:38 | ERROR    | [FAIL] video_assembler raised an error: 'video'
+2026-03-29 05:40:38 | DEBUG    | Traceback (most recent call last):
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 241, in main
+    result = run_module(module_name, video_config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/main.py", line 69, in run_module
+    result = mod.run(video_config)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/modules/video_assembler.py", line 327, in run
+    output_path = config["video"]["output_path"]
+                  ~~~~~~^^^^^^^^^
+KeyError: 'video'
+
+2026-03-29 05:41:11 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:41:11 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:41:11 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:41:11 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-29 05:41:11 | INFO     | [RUN ] scraper ...
+2026-03-29 05:41:11 | INFO     | Scraping platform: manual
+2026-03-29 05:41:11 | INFO     | Scraped 3 comments
+2026-03-29 05:41:11 | SUCCESS  | [DONE] scraper
+2026-03-29 05:41:11 | INFO     | [RUN ] card_renderer ...
+2026-03-29 05:41:11 | INFO     | Rendering 4 cards (Threads UI style)...
+2026-03-29 05:41:11 | INFO     | Fetching avatar images...
+2026-03-29 05:41:13 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/topic.png
+2026-03-29 05:41:13 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c001.png
+2026-03-29 05:41:13 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c002.png
+2026-03-29 05:41:14 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c003.png
+2026-03-29 05:41:14 | INFO     | Rendered 4 cards to output/jobs/qa_subway_test/cards
+2026-03-29 05:41:14 | SUCCESS  | [DONE] card_renderer
+2026-03-29 05:41:14 | INFO     | [RUN ] tts_engine ...
+2026-03-29 05:41:14 | INFO     | Starting TTS generation...
+2026-03-29 05:41:14 | INFO     | TTS: topic (46 chars)
+2026-03-29 05:41:14 | INFO     | TTS: c001 (77 chars)
+2026-03-29 05:41:15 | DEBUG    |   -> c001: 5.4s, 18 words
+2026-03-29 05:41:15 | INFO     | TTS: c002 (76 chars)
+2026-03-29 05:41:16 | DEBUG    |   -> c002: 5.4s, 18 words
+2026-03-29 05:41:16 | INFO     | TTS: c003 (76 chars)
+2026-03-29 05:41:17 | DEBUG    |   -> c003: 5.4s, 18 words
+2026-03-29 05:41:17 | INFO     | TTS complete: 3/3 comments
+2026-03-29 05:41:17 | SUCCESS  | [DONE] tts_engine
+2026-03-29 05:41:17 | INFO     | [RUN ] caption_sync ...
+2026-03-29 05:41:17 | INFO     | Building karaoke captions...
+2026-03-29 05:41:17 | INFO     | Caption file written: output/jobs/qa_subway_test/captions/captions.ass (14 dialogue lines)
+2026-03-29 05:41:17 | SUCCESS  | [DONE] caption_sync
+2026-03-29 05:41:17 | INFO     | [RUN ] meme_engine ...
+2026-03-29 05:41:17 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-29 05:41:17 | DEBUG    |   c001: POS/surprise → meme=none
+2026-03-29 05:41:17 | DEBUG    |   c002: NEU/neutral → meme=none
+2026-03-29 05:41:17 | DEBUG    |   c003: POS/surprise → meme=none
+2026-03-29 05:41:17 | INFO     | Meme/SFX assigned to 3 comments
+2026-03-29 05:41:17 | SUCCESS  | [DONE] meme_engine
+2026-03-29 05:41:17 | INFO     | [RUN ] video_assembler ...
+2026-03-29 05:41:17 | INFO     | Building video timeline...
+2026-03-29 05:41:17 | INFO     | Total video duration: 23.8s (5 segments)
+2026-03-29 05:41:17 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4
+2026-03-29 05:41:17 | WARNING  | ass subtitle filter not available in this ffmpeg build — captions skipped
+2026-03-29 05:41:17 | INFO     | Running FFmpeg...
+2026-03-29 05:41:17 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/subway-surfer/part00.mp4 -i output/jobs/qa_subway_test/cards/topic.png -i output/jobs/qa_subway_test/cards/c001.png...
+2026-03-29 05:41:21 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4 (23.2 MB, 23.8s)
+2026-03-29 05:41:21 | SUCCESS  | [DONE] video_assembler
+2026-03-29 05:41:21 | SUCCESS  | === Job complete! ===
+2026-03-29 05:41:21 | SUCCESS  | Output: not yet produced
+2026-03-29 05:41:21 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/video_config.json
+2026-03-29 05:47:37 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:47:37 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:47:37 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:47:37 | INFO     | Pipeline: card_renderer -> video_assembler
+2026-03-29 05:47:37 | INFO     | [SKIP] card_renderer (already completed)
+2026-03-29 05:47:37 | INFO     | [SKIP] video_assembler (already completed)
+2026-03-29 05:47:37 | SUCCESS  | === Job complete! ===
+2026-03-29 05:47:37 | SUCCESS  | Output: not yet produced
+2026-03-29 05:47:37 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/video_config.json
+2026-03-29 05:47:43 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/qa_subway_test.log
+2026-03-29 05:47:43 | INFO     | === Brainrot Video Factory | job_id=qa_subway_test | lang=vi ===
+2026-03-29 05:47:43 | INFO     | Device: mps | TTS: edge_tts
+2026-03-29 05:47:43 | INFO     | Pipeline: card_renderer -> video_assembler
+2026-03-29 05:47:43 | INFO     | [RUN ] card_renderer ...
+2026-03-29 05:47:43 | INFO     | Rendering 4 cards (Threads UI style)...
+2026-03-29 05:47:43 | INFO     | Fetching avatar images...
+2026-03-29 05:47:44 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/topic.png
+2026-03-29 05:47:45 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c001.png
+2026-03-29 05:47:45 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c002.png
+2026-03-29 05:47:45 | DEBUG    | Rendered card: output/jobs/qa_subway_test/cards/c003.png
+2026-03-29 05:47:45 | INFO     | Rendered 4 cards to output/jobs/qa_subway_test/cards
+2026-03-29 05:47:45 | SUCCESS  | [DONE] card_renderer
+2026-03-29 05:47:45 | INFO     | [RUN ] video_assembler ...
+2026-03-29 05:47:45 | INFO     | Building video timeline...
+2026-03-29 05:47:45 | INFO     | Total video duration: 23.8s (5 segments)
+2026-03-29 05:47:45 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4
+2026-03-29 05:47:45 | WARNING  | ass subtitle filter not available in this ffmpeg build — captions skipped
+2026-03-29 05:47:45 | INFO     | Running FFmpeg...
+2026-03-29 05:47:45 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/subway-surfer/part00.mp4 -i output/jobs/qa_subway_test/cards/topic.png -i output/jobs/qa_subway_test/cards/c001.png...
+2026-03-29 05:47:49 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/final_video.mp4 (23.1 MB, 23.8s)
+2026-03-29 05:47:49 | SUCCESS  | [DONE] video_assembler
+2026-03-29 05:47:49 | SUCCESS  | === Job complete! ===
+2026-03-29 05:47:49 | SUCCESS  | Output: not yet produced
+2026-03-29 05:47:49 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/qa_subway_test/video_config.json

@@ -1,0 +1,29 @@
+{
+  "job_id": "test_scraper_manual",
+  "platform": "manual",
+  "url": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/test_scraper_manual/manual_input.json",
+  "topic": {
+    "text": "Is pineapple on pizza acceptable?",
+    "author": "@testuser",
+    "likes": "8.3K",
+    "card_type": "topic"
+  },
+  "comments": [
+    {
+      "id": "c001",
+      "author": "@alpha_user",
+      "text": "Absolutely yes! The sweet-savory combo is unbeatable.",
+      "likes": "1.2K",
+      "sentiment": null,
+      "emotion": null
+    },
+    {
+      "id": "c002",
+      "author": "@beta_user",
+      "text": "No! Pizza is sacred and pineapple ruins everything about it.",
+      "likes": "500",
+      "sentiment": null,
+      "emotion": null
+    }
+  ]
+}

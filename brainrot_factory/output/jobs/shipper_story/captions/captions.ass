@@ -1,0 +1,80 @@
+[Script Info]
+Title: Brainrot Factory Captions
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Be Vietnam Pro,52,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3,0,2,60,60,50,1
+Style: Highlight,Be Vietnam Pro,52,&H0000FFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3,0,2,60,60,50,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.63,0:00:03.85,Default,,0,0,0,,{\k10}cái {\k19}lùm {\k16}mía {\k25}tôi {\k40}order
+Dialogue: 0,0:00:03.75,0:00:05.63,Default,,0,0,0,,{\k13}áo {\k23}ngực {\k16}anh {\k51}shipper {\k26}chị
+Dialogue: 0,0:00:05.53,0:00:06.91,Default,,0,0,0,,{\k32}ơi {\k21}òm {\k17}chị {\k14}có {\k21}nhà
+Dialogue: 0,0:00:06.81,0:00:07.85,Default,,0,0,0,,{\k17}không {\k20}chị {\k20}em {\k13}ơ {\k22}em
+Dialogue: 0,0:00:07.75,0:00:08.87,Default,,0,0,0,,{\k13}ơ {\k21}em {\k13}ơ {\k33}tới {\k21}tới
+Dialogue: 0,0:00:08.77,0:00:09.92,Default,,0,0,0,,{\k20}giao {\k17}cái {\k25}áo {\k20}áo {\k21}gì
+Dialogue: 0,0:00:09.82,0:00:11.13,Default,,0,0,0,,{\k16}á {\k33}chị {\k16}áo {\k14}gì {\k20}màu
+Dialogue: 0,0:00:11.03,0:00:12.40,Default,,0,0,0,,{\k16}hồng {\k25}phấn {\k14}á {\k32}chị {\k17}má
+Dialogue: 0,0:00:12.30,0:00:13.35,Default,,0,0,0,,{\k21}tôi {\k16}phải {\k25}nhịn {\k32}cười
+Dialogue: 0,0:00:13.69,0:00:14.73,Default,,0,0,0,,{\k10}tôi {\k19}đặt {\k19}băng {\k17}vệ {\k27}sinh
+Dialogue: 0,0:00:14.63,0:00:15.98,Default,,0,0,0,,{\k16}anh {\k42}shipper {\k20}điện {\k21}nói {\k23}em
+Dialogue: 0,0:00:15.88,0:00:17.04,Default,,0,0,0,,{\k18}giao {\k15}cái {\k21}miếng {\k25}dán {\k25}gì
+Dialogue: 0,0:00:16.94,0:00:17.53,Default,,0,0,0,,{\k16}á {\k32}chị
+Dialogue: 0,0:00:20.33,0:00:21.46,Default,,0,0,0,,{\k27}trước {\k16}tôi {\k16}đặt {\k19}trà {\k23}giảm
+Dialogue: 0,0:00:21.36,0:00:22.69,Default,,0,0,0,,{\k21}cân {\k22}xong {\k15}anh {\k38}shipper {\k25}bảo
+Dialogue: 0,0:00:22.59,0:00:23.76,Default,,0,0,0,,{\k16}em {\k16}mua {\k16}đồ {\k26}dởm {\k30}rồi
+Dialogue: 0,0:00:23.85,0:00:24.92,Default,,0,0,0,,{\k25}vợ {\k16}anh {\k21}uống {\k14}cái {\k20}này
+Dialogue: 0,0:00:24.82,0:00:25.81,Default,,0,0,0,,{\k11}có {\k16}thấy {\k18}gầy {\k15}đi {\k25}lạng
+Dialogue: 0,0:00:25.71,0:00:26.19,Default,,0,0,0,,{\k14}nào {\k23}đâu
+Dialogue: 0,0:00:29.01,0:00:30.50,Default,,0,0,0,,{\k21}Trời {\k29}oi {\k34}shipper {\k16}giao {\k20}đơn
+Dialogue: 0,0:00:30.40,0:00:31.37,Default,,0,0,0,,{\k13}cho {\k23}tôi {\k17}nhưng {\k11}mà {\k20}mẹ
+Dialogue: 0,0:00:31.27,0:00:32.49,Default,,0,0,0,,{\k25}tôi {\k14}ở {\k19}nhà {\k21}nhận {\k32}hộ
+Dialogue: 0,0:00:32.61,0:00:33.65,Default,,0,0,0,,{\k18}mẹ {\k16}tôi {\k18}hỏi {\k19}đơn {\k20}gì
+Dialogue: 0,0:00:33.55,0:00:34.55,Default,,0,0,0,,{\k16}thì {\k15}ổng {\k20}bảo {\k17}là {\k19}Hồng
+Dialogue: 0,0:00:34.45,0:00:35.80,Default,,0,0,0,,{\k32}Bướm {\k13}về {\k15}nhà {\k22}mẹ {\k17}tôi
+Dialogue: 0,0:00:35.70,0:00:36.68,Default,,0,0,0,,{\k18}hỏi {\k19}con {\k15}mua {\k20}gì {\k14}mà
+Dialogue: 0,0:00:36.58,0:00:37.83,Default,,0,0,0,,{\k40}shipper {\k18}nó {\k17}bảo {\k20}đơn {\k17}hồng
+Dialogue: 0,0:00:37.73,0:00:38.74,Default,,0,0,0,,{\k17}bướm {\k17}thế {\k20}tôi {\k17}phải {\k16}bóc
+Dialogue: 0,0:00:38.64,0:00:39.80,Default,,0,0,0,,{\k19}ra {\k13}cho {\k23}mẹ {\k17}tôi {\k32}coi
+Dialogue: 0,0:00:40.53,0:00:41.67,Default,,0,0,0,,{\k13}Cơ {\k19}mà {\k23}người {\k19}tôi {\k29}ngại
+Dialogue: 0,0:00:41.57,0:00:42.90,Default,,0,0,0,,{\k27}là {\k19}ông {\k41}shipper {\k34}cơ
+Dialogue: 0,0:00:45.71,0:00:46.77,Default,,0,0,0,,{\k24}Đợt {\k11}về {\k16}Việt {\k22}Nam {\k20}tôi
+Dialogue: 0,0:00:46.67,0:00:47.81,Default,,0,0,0,,{\k29}order {\k17}1 {\k20}lần {\k16}1 {\k19}lô
+Dialogue: 0,0:00:47.71,0:00:48.97,Default,,0,0,0,,{\k21}shop {\k20}pe {\k20}xong {\k13}lúc {\k41}shipper
+Dialogue: 0,0:00:48.87,0:00:49.98,Default,,0,0,0,,{\k21}gọi {\k15}lấy {\k20}đơn {\k20}tôi {\k23}còn
+Dialogue: 0,0:00:49.88,0:00:50.82,Default,,0,0,0,,{\k17}không {\k15}biết {\k20}đơn {\k19}nào {\k10}với
+Dialogue: 0,0:00:50.72,0:00:52.55,Default,,0,0,0,,{\k16}đơn {\k25}nào {\k14}Có {\k16}1 {\k21}hôm
+Dialogue: 0,0:00:52.45,0:00:53.64,Default,,0,0,0,,{\k16}tôi {\k15}đang {\k26}ngủ {\k16}thì {\k33}shipper
+Dialogue: 0,0:00:53.54,0:00:54.58,Default,,0,0,0,,{\k21}gọi {\k21}xong {\k10}bà {\k18}tôi {\k21}ng
+Dialogue: 0,0:00:54.48,0:00:56.35,Default,,0,0,0,,{\k35}máy {\k34}alo {\k16}ai {\k29}đấy {\k22}dạ
+Dialogue: 0,0:00:56.25,0:00:57.64,Default,,0,0,0,,{\k21}cháu {\k17}ship {\k22}hàng {\k27}ạ {\k21}hàng
+Dialogue: 0,0:00:57.54,0:00:59.12,Default,,0,0,0,,{\k15}gì {\k30}đấy {\k22}đồ {\k44}cosplay {\k20}gợi
+Dialogue: 0,0:00:59.02,0:01:00.04,Default,,0,0,0,,{\k27}cảm {\k11}cho {\k20}nữ {\k32}ạ
+Dialogue: 0,0:01:02.88,0:01:03.87,Default,,0,0,0,,{\k10}kí {\k19}lùm {\k21}mé {\k17}tôi {\k20}đặt
+Dialogue: 0,0:01:03.77,0:01:04.69,Default,,0,0,0,,{\k10}áo {\k20}ngực {\k16}không {\k17}dây {\k16}về
+Dialogue: 0,0:01:04.59,0:01:06.00,Default,,0,0,0,,{\k17}chỗ {\k21}làm {\k14}của {\k34}chồng {\k21}shop
+Dialogue: 0,0:01:05.90,0:01:06.92,Default,,0,0,0,,{\k15}cũng {\k16}cẩn {\k18}thận {\k21}chị {\k19}tên
+Dialogue: 0,0:01:06.82,0:01:07.89,Default,,0,0,0,,{\k19}sản {\k26}phẩm {\k19}rồi {\k16}mà {\k16}cha
+Dialogue: 0,0:01:07.79,0:01:08.93,Default,,0,0,0,,{\k19}nội {\k21}ship {\k22}đứng {\k17}giữa {\k22}cửa
+Dialogue: 0,0:01:08.83,0:01:10.20,Default,,0,0,0,,{\k18}công {\k17}ty {\k18}oang {\k31}oang {\k16}anh
+Dialogue: 0,0:01:10.10,0:01:11.11,Default,,0,0,0,,{\k15}Đức {\k14}ra {\k21}nhận {\k16}đơn {\k22}hàng
+Dialogue: 0,0:01:11.01,0:01:12.00,Default,,0,0,0,,{\k11}áo {\k21}ngực {\k20}không {\k16}dây {\k18}anh
+Dialogue: 0,0:01:11.90,0:01:12.24,Default,,0,0,0,,{\k23}ơi
+Dialogue: 0,0:01:15.04,0:01:16.42,Default,,0,0,0,,{\k15}Có {\k23}mấy {\k14}bà {\k17}đặt {\k56}Baemin
+Dialogue: 0,0:01:16.32,0:01:17.41,Default,,0,0,0,,{\k14}để {\k28}tên {\k15}mà {\k17}gọi {\k22}xác
+Dialogue: 0,0:01:17.31,0:01:19.27,Default,,0,0,0,,{\k21}nhận {\k22}ngại {\k16}vãi {\k29}luôn {\k16}Có
+Dialogue: 0,0:01:19.17,0:01:20.28,Default,,0,0,0,,{\k17}bà {\k23}kia {\k19}đặt {\k25}tên {\k15}là
+Dialogue: 0,0:01:20.18,0:01:22.46,Default,,0,0,0,,{\k47}Baby {\k32}Gọi {\k17}ứng {\k26}dụng {\k14}thì
+Dialogue: 0,0:01:22.36,0:01:23.67,Default,,0,0,0,,{\k21}không {\k15}thấy {\k17}trả {\k30}lời {\k20}phải
+Dialogue: 0,0:01:23.57,0:01:25.70,Default,,0,0,0,,{\k21}gọi {\k22}số {\k19}điện {\k35}thoại {\k25}Định
+Dialogue: 0,0:01:25.60,0:01:26.63,Default,,0,0,0,,{\k15}nói {\k16}là {\k17}em {\k25}tới {\k17}rồi
+Dialogue: 0,0:01:26.53,0:01:27.94,Default,,0,0,0,,{\k20}chị {\k20}tới {\k25}chưa {\k32}ạ {\k16}thì
+Dialogue: 0,0:01:27.84,0:01:29.46,Default,,0,0,0,,{\k16}liều {\k29}thành {\k45}Baby {\k23}em {\k17}tới
+Dialogue: 0,0:01:29.36,0:01:31.30,Default,,0,0,0,,{\k34}chưa {\k26}Quê {\k42}vãi

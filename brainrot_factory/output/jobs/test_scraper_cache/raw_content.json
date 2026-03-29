@@ -1,0 +1,21 @@
+{
+  "job_id": "test_scraper_cache",
+  "platform": "manual",
+  "url": "/Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/test_scraper_cache/manual_input.json",
+  "topic": {
+    "text": "Cache test topic",
+    "author": "@cacher",
+    "likes": "100",
+    "card_type": "topic"
+  },
+  "comments": [
+    {
+      "id": "c001",
+      "author": "@user_x",
+      "text": "This comment is long enough to pass the filter threshold easily.",
+      "likes": "50",
+      "sentiment": null,
+      "emotion": null
+    }
+  ]
+}

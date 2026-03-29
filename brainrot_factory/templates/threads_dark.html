@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* System font stack with Vietnamese support */
+  @font-face {
+    font-family: 'BeVietnamPro';
+    src: local('Be Vietnam Pro'), local('BeVietnamPro');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'BeVietnamPro';
+    src: local('Be Vietnam Pro Bold'), local('BeVietnamPro-Bold');
+    font-weight: bold;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background: transparent;
+    width: 1000px;
+  }
+
+  .card {
+    width: 1000px;
+    min-height: 160px;
+    max-height: 520px;
+    background: #1A1A1A;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    padding: 28px 32px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-family: 'BeVietnamPro', 'Be Vietnam Pro', system-ui, -apple-system,
+                 'Segoe UI', sans-serif;
+    overflow: hidden;
+  }
+
+  /* Header row: avatar + username + platform icon */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: {{avatar_color}};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .username-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .username {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 760px;
+  }
+
+  .platform-badge {
+    font-size: 20px;
+    color: #888888;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Platform icon - stylized @ Threads logo */
+  .threads-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  /* Comment text */
+  .comment-text {
+    font-size: 36px;
+    font-weight: 400;
+    color: #E8E8E8;
+    line-height: 1.55;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* Clamp to ~5 lines within max-height */
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Footer: likes + timestamp */
+  .footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 4px;
+  }
+
+  .likes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 24px;
+    color: #888888;
+  }
+
+  .likes-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .timestamp {
+    font-size: 24px;
+    color: #888888;
+  }
+
+  /* Divider line at bottom */
+  .divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="avatar" style="background:{{avatar_color}};">{{avatar_initials}}</div>
+    <div class="username-area">
+      <span class="username">{{username}}</span>
+      <span class="platform-badge">
+        <span class="threads-icon">
+          <!-- Threads '@' style SVG logo -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.001 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12.001 22C17.525 22 22.001 17.523 22.001 12C22.001 6.477 17.525 2 12.001 2ZM15.674 16.223C14.666 17.07 13.386 17.5 12.001 17.5C9.006 17.5 6.876 15.479 6.876 12.014C6.876 8.547 9.006 6.5 12.001 6.5C14.201 6.5 15.989 7.519 16.823 9.272C17.26 10.174 17.501 11.302 17.501 12.5C17.501 13.322 17.354 13.898 17.008 14.26C16.715 14.567 16.298 14.723 15.787 14.705C15.109 14.682 14.704 14.362 14.547 13.76C14.059 14.358 13.325 14.705 12.44 14.705C10.876 14.705 9.751 13.521 9.751 11.914C9.751 10.306 10.876 9.125 12.44 9.125C13.113 9.125 13.698 9.367 14.139 9.812L14.251 9.25H15.625L14.903 12.754C14.793 13.264 14.875 13.516 15.19 13.527C15.437 13.535 15.612 13.451 15.751 13.304C15.976 13.067 16.001 12.636 16.001 12.5C16.001 11.516 15.8 10.64 15.419 9.878C14.741 8.5 13.47 7.75 12.001 7.75C9.804 7.75 8.126 9.51 8.126 12.014C8.126 14.517 9.804 16.25 12.001 16.25C13.131 16.25 14.172 15.866 14.952 15.16C15.205 15.551 15.586 15.813 16.049 15.96C15.938 16.054 15.809 16.143 15.674 16.223ZM12.44 10.375C11.598 10.375 11.001 11.016 11.001 11.914C11.001 12.812 11.598 13.455 12.44 13.455C13.281 13.455 13.876 12.812 13.876 11.914C13.876 11.016 13.281 10.375 12.44 10.375Z" fill="#888888"/>
+          </svg>
+        </span>
+        Threads
+      </span>
+    </div>
+  </div>
+
+  <div class="comment-text">{{text}}</div>
+
+  <div class="footer">
+    <span class="likes">
+      <!-- Heart icon -->
+      <svg class="likes-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#888888"/>
+      </svg>
+      {{likes}}
+    </span>
+    <span class="timestamp">{{timestamp}}</span>
+  </div>
+
+  <div class="divider"></div>
+</div>
+</body>
+</html>
