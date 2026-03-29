@@ -13,18 +13,9 @@ dist/
 build/
 .pytest_cache/
 
-# Output (large/generated files)
-output/final/*.mp4
-output/jobs/*/audio/*.mp3
-output/jobs/*/audio/*.srt
-output/jobs/*/cards/*.png
-output/jobs/*/captions/*.ass
-
-# Assets (large binaries)
-**/*.mp4
-**/*.mp3
-**/*.ttf
-**/*.otf
+# Output & Assets (large/generated files)
+brainrot_factory/output/
+brainrot_factory/assets/
 
 # Database
 *.db
