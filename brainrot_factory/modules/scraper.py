@@ -152,138 +152,29 @@ def _fetch_reddit_json(url: str, max_comments: int) -> dict:
     return {"topic": topic, "comments": comments, "url": url}
 
 
-async def _fetch_threads_playwright(url: str, max_comments: int) -> dict:
-    """Fetch Threads post via Playwright browser automation."""
-    from playwright.async_api import async_playwright
+def _fetch_threads_subprocess(url: str, max_comments: int) -> dict:
+    """
+    Run Playwright in an isolated subprocess to avoid asyncio/PyTorch state pollution.
+    The worker script prints JSON to stdout; we parse and return it.
+    """
+    import subprocess
+    import sys
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-        )
-        page = await context.new_page()
-
-        try:
-            await page.goto(url, timeout=30000, wait_until="domcontentloaded")
-            await asyncio.sleep(3)  # respect rate limits
-
-            # Extract post content
-            post_text = ""
-            author = ""
-            likes = "0"
-
-            # Try multiple selectors for post text
-            for selector in ["[data-pressable-container] span", "article span", "main span"]:
-                try:
-                    el = await page.query_selector(selector)
-                    if el:
-                        post_text = await el.inner_text()
-                        if len(post_text) > 10:
-                            break
-                except Exception:
-                    pass
-
-            # Author
-            for selector in ["[href*='@'] span", "header a span", "a[role='link'] span"]:
-                try:
-                    el = await page.query_selector(selector)
-                    if el:
-                        a_text = await el.inner_text()
-                        if a_text and len(a_text) < 50:
-                            author = f"@{a_text.lstrip('@')}"
-                            break
-                except Exception:
-                    pass
-
-            # Topic author avatar URL
-            topic_avatar_url = ""
-            try:
-                avatar_img = await page.query_selector("article:first-of-type img[alt*='profile picture']")
-                if avatar_img:
-                    topic_avatar_url = await avatar_img.get_attribute("src") or ""
-            except Exception:
-                pass
-
-            # Get page content for comment extraction
-            await asyncio.sleep(2)
-
-            # Extract comments
-            comments = []
-            comment_els = await page.query_selector_all("article")
-
-            for i, el in enumerate(comment_els[1:max_comments+1]):  # skip first (post itself)
-                try:
-                    await asyncio.sleep(0.5)
-                    text = await el.inner_text()
-                    lines = [line.strip() for line in text.split('\n') if line.strip()]
-                    if not lines:
-                        continue
-                    comment_text = ' '.join(lines[:5])  # first few lines
-                    comment_text = _normalize_text(comment_text)
-                    if len(comment_text) < 30:
-                        continue
-
-                    # Extract avatar URL from profile picture img
-                    avatar_url = ""
-                    try:
-                        avatar_img = await el.query_selector("img[alt*='profile picture']")
-                        if avatar_img:
-                            avatar_url = await avatar_img.get_attribute("src") or ""
-                    except Exception:
-                        pass
-
-                    # Extract author username
-                    comment_author = f"@user_{i+1}"
-                    try:
-                        author_el = await el.query_selector("a[href*='/@'] span, a[href^='/@']")
-                        if author_el:
-                            a_text = await author_el.inner_text()
-                            if a_text and len(a_text) < 50:
-                                comment_author = f"@{a_text.lstrip('@')}"
-                    except Exception:
-                        pass
-
-                    # Extract likes count
-                    comment_likes = "0"
-                    try:
-                        like_els = await el.query_selector_all("span")
-                        for like_el in like_els:
-                            like_text = (await like_el.inner_text()).strip()
-                            if re.match(r'^\d+(\.\d+)?[KkMm]?$', like_text):
-                                comment_likes = like_text
-                                break
-                    except Exception:
-                        pass
-
-                    comments.append({
-                        "id": f"c{i+1:03d}",
-                        "author": comment_author,
-                        "text": comment_text[:500],
-                        "likes": comment_likes,
-                        "avatar_url": avatar_url,
-                        "sentiment": None,
-                        "emotion": None
-                    })
-                except Exception:
-                    continue
-
-            if not post_text:
-                post_text = f"Threads post from {url}"
-
-        finally:
-            await browser.close()
-
-        return {
-            "topic": {
-                "text": _normalize_text(post_text)[:300],
-                "author": author or "@threads_user",
-                "likes": likes,
-                "avatar_url": topic_avatar_url,
-                "card_type": "topic"
-            },
-            "comments": comments,
-            "url": url
-        }
+    worker = Path(__file__).parent.parent / "scripts" / "threads_scraper_worker.py"
+    cmd = [sys.executable, str(worker), url, str(max_comments)]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        if proc.returncode != 0:
+            logger.warning(f"Worker stderr: {proc.stderr[-800:]}")
+        stdout = proc.stdout.strip()
+        if not stdout:
+            raise ValueError(f"Worker produced no output. stderr: {proc.stderr[-300:]}")
+        result = json.loads(stdout)
+        if "error" in result:
+            raise ValueError(result["error"])
+        return result
+    except subprocess.TimeoutExpired:
+        raise ValueError("Playwright worker timed out after 120s")
 
 
 def _load_manual_json(json_path: str) -> dict:
@@ -380,7 +271,7 @@ def run(config: dict) -> dict:
         url = source.get("url", "")
         if not url:
             raise ValueError("url required for threads platform")
-        result = asyncio.run(_fetch_threads_playwright(url, max_comments))
+        result = _fetch_threads_subprocess(url, max_comments)
 
     else:
         raise ValueError(f"Unknown platform: {platform}")

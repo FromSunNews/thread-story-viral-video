@@ -8,9 +8,23 @@ import json
 import os
 import random
 import sqlite3
+import subprocess
 from pathlib import Path
 
 from loguru import logger
+
+
+def _get_video_duration(path: str) -> float:
+    """Return video duration in seconds via ffprobe, or 0.0 on failure."""
+    try:
+        result = subprocess.run(
+            ["ffprobe", "-v", "quiet", "-show_entries", "format=duration",
+             "-of", "csv=p=0", path],
+            capture_output=True, text=True, timeout=5
+        )
+        return float(result.stdout.strip())
+    except Exception:
+        return 0.0
 
 
 EMOTION_SFX = {}  # populated dynamically by _scan_sfx_library
@@ -26,15 +40,18 @@ def _init_db(db_path: Path) -> sqlite3.Connection:
             path TEXT UNIQUE NOT NULL,
             emotion TEXT NOT NULL,
             meme_type TEXT NOT NULL DEFAULT 'video',
+            duration REAL DEFAULT 0.0,
             usage_count INTEGER DEFAULT 0,
             last_used_job TEXT DEFAULT NULL
         )
     """)
-    # Add meme_type column if upgrading from old schema
-    try:
-        conn.execute("ALTER TABLE memes ADD COLUMN meme_type TEXT NOT NULL DEFAULT 'video'")
-    except Exception:
-        pass
+    # Add columns if upgrading from old schema
+    for col, definition in [("meme_type", "TEXT NOT NULL DEFAULT 'video'"),
+                             ("duration", "REAL DEFAULT 0.0")]:
+        try:
+            conn.execute(f"ALTER TABLE memes ADD COLUMN {col} {definition}")
+        except Exception:
+            pass
     conn.execute("""
         CREATE TABLE IF NOT EXISTS job_history (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,24 +65,45 @@ def _init_db(db_path: Path) -> sqlite3.Connection:
 
 
 def _scan_meme_library(conn: sqlite3.Connection, assets_dir: Path) -> None:
-    """Scan assets/memes/ (video) and assets/memes_img/ (image) folders."""
-    # Video memes
-    memes_dir = assets_dir / "memes"
-    if not memes_dir.exists():
-        return
+    """Scan assets/memes/ (video), assets/memes_img/ (image), and assets/memes_emotions/ (video) folders."""
+    def _insert_video(clip: Path, emotion: str) -> None:
+        inserted = conn.execute(
+            "INSERT OR IGNORE INTO memes (path, emotion, meme_type, duration) VALUES (?, ?, 'video', ?)",
+            (str(clip), emotion, 0.0)
+        ).rowcount
+        # Fill duration for newly inserted rows (or rows with duration=0)
+        needs_duration = conn.execute(
+            "SELECT 1 FROM memes WHERE path = ? AND duration = 0.0", (str(clip),)
+        ).fetchone()
+        if needs_duration:
+            dur = _get_video_duration(str(clip))
+            conn.execute("UPDATE memes SET duration = ? WHERE path = ?", (dur, str(clip)))
 
-    for emotion_dir in memes_dir.iterdir():
-        if not emotion_dir.is_dir():
-            continue
-        emotion = emotion_dir.name
-        for clip in emotion_dir.glob("*.mp4"):
-            try:
-                conn.execute(
-                    "INSERT OR IGNORE INTO memes (path, emotion, meme_type) VALUES (?, ?, 'video')",
-                    (str(clip), emotion)
-                )
-            except:
-                pass
+    # Video memes (legacy folder)
+    memes_dir = assets_dir / "memes"
+    if memes_dir.exists():
+        for emotion_dir in memes_dir.iterdir():
+            if not emotion_dir.is_dir():
+                continue
+            emotion = emotion_dir.name
+            for clip in emotion_dir.glob("*.mp4"):
+                try:
+                    _insert_video(clip, emotion)
+                except:
+                    pass
+
+    # Emotion-classified video memes (primary folder)
+    memes_emotions_dir = assets_dir / "memes_emotions"
+    if memes_emotions_dir.exists():
+        for emotion_dir in memes_emotions_dir.iterdir():
+            if not emotion_dir.is_dir():
+                continue
+            emotion = emotion_dir.name
+            for clip in emotion_dir.glob("*.mp4"):
+                try:
+                    _insert_video(clip, emotion)
+                except:
+                    pass
 
     # Image memes (jpg/png/gif/webp)
     img_dir = assets_dir / "memes_img"
@@ -164,10 +202,11 @@ def _analyze_sentiment_transformers(text: str) -> tuple:
 
 def _select_meme(conn: sqlite3.Connection, emotion: str, job_id: str,
                  cooldown: int = 5, used_in_job: set = None,
-                 meme_type: str = None) -> tuple:
+                 meme_type: str = None, max_duration: float = None) -> tuple:
     """
     Select a meme for the given emotion that hasn't been used recently.
     meme_type: 'video' | 'image' | None (any)
+    max_duration: only pick video memes shorter than this (seconds), ignored for images
     Returns (path, meme_type) or ("", "video") if none available.
     """
     if used_in_job is None:
@@ -191,19 +230,22 @@ def _select_meme(conn: sqlite3.Connection, emotion: str, job_id: str,
 
     emotions_to_try = [emotion] + FALLBACK_EMOTIONS.get(emotion, []) + ["neutral"]
     type_filter = "AND meme_type = ?" if meme_type else ""
+    dur_filter = "AND (meme_type != 'video' OR duration < ?)" if max_duration is not None else ""
 
     for try_emotion in emotions_to_try:
         params = [try_emotion]
         if meme_type:
             params.append(meme_type)
+        if max_duration is not None:
+            params.append(max_duration)
         if recent_paths:
             rows = conn.execute(
-                f"SELECT path, meme_type FROM memes WHERE emotion = ? {type_filter} AND path NOT IN ({','.join('?' * len(recent_paths))})",
+                f"SELECT path, meme_type FROM memes WHERE emotion = ? {type_filter} {dur_filter} AND path NOT IN ({','.join('?' * len(recent_paths))})",
                 params + list(recent_paths)
             ).fetchall()
         else:
             rows = conn.execute(
-                f"SELECT path, meme_type FROM memes WHERE emotion = ? {type_filter}",
+                f"SELECT path, meme_type FROM memes WHERE emotion = ? {type_filter} {dur_filter}",
                 params
             ).fetchall()
         if rows:
@@ -211,12 +253,13 @@ def _select_meme(conn: sqlite3.Connection, emotion: str, job_id: str,
             break
     else:
         params = list(used_in_job)
+        dur_clause = f"AND (meme_type != 'video' OR duration < {max_duration})" if max_duration is not None else ""
         if meme_type:
             type_clause = f"AND meme_type = '{meme_type}'"
         else:
             type_clause = ""
         rows = conn.execute(
-            f"SELECT path, meme_type FROM memes WHERE 1=1 {type_clause}"
+            f"SELECT path, meme_type FROM memes WHERE 1=1 {type_clause} {dur_clause}"
             + (f" AND path NOT IN ({','.join('?' * len(used_in_job))})" if used_in_job else "")
             + " ORDER BY usage_count ASC LIMIT 10",
             params
@@ -282,12 +325,14 @@ def run(config: dict) -> dict:
 
     logger.info("Analyzing sentiment and selecting memes...")
 
-    # Load original emotions from manual_input.json (if available) to avoid stale pipeline values
+    # Load original emotions from manual_input.json or raw_content.json to avoid stale pipeline values
+    import json as _json
     original_emotions: dict = {}
+
+    # Try manual_json_path first
     manual_path = config.get("source", {}).get("manual_json_path")
     if manual_path and Path(manual_path).exists():
         try:
-            import json as _json
             with open(manual_path, encoding="utf-8") as _f:
                 _orig = _json.load(_f)
             for _c in _orig.get("comments", []):
@@ -295,7 +340,31 @@ def run(config: dict) -> dict:
                     original_emotions[_c["id"]] = _c["emotion"]
             logger.debug(f"Loaded original emotions for {len(original_emotions)} comments from manual input")
         except Exception as e:
-            logger.debug(f"Could not load original emotions: {e}")
+            logger.debug(f"Could not load original emotions from manual: {e}")
+
+    # Also load from raw_content.json in job_dir (takes precedence for emotion list format)
+    # Also reads manual meme_clip / meme_image overrides set by user
+    manual_clips: dict = {}  # cid -> {"meme_clip": ..., "meme_image": ...}
+    job_dir = config.get("job_dir")
+    if job_dir:
+        raw_content_path = Path(job_dir) / "raw_content.json"
+        if raw_content_path.exists():
+            try:
+                with open(raw_content_path, encoding="utf-8") as _f:
+                    _raw = _json.load(_f)
+                for _c in _raw.get("comments", []):
+                    if _c.get("emotion"):
+                        original_emotions[_c["id"]] = _c["emotion"]
+                    if _c.get("meme_clip") or _c.get("meme_image"):
+                        manual_clips[_c["id"]] = {
+                            "meme_clip": _c.get("meme_clip", ""),
+                            "meme_image": _c.get("meme_image", ""),
+                        }
+                logger.debug(f"Loaded/updated emotions for {len(original_emotions)} comments from raw_content.json")
+                if manual_clips:
+                    logger.info(f"Manual meme overrides found for: {list(manual_clips.keys())}")
+            except Exception as e:
+                logger.debug(f"Could not load emotions from raw_content.json: {e}")
 
     used_in_job: set = set()
 
@@ -306,11 +375,19 @@ def run(config: dict) -> dict:
         # Prefer original manual emotion > pipeline emotion > sentiment analysis
         preset_emotion = original_emotions.get(cid) or None
 
+        # Normalize list emotion to string (use first as primary)
+        if isinstance(preset_emotion, list):
+            emotion_list = [e for e in preset_emotion if e]
+            primary_emotion = emotion_list[0] if emotion_list else None
+        else:
+            emotion_list = [preset_emotion] if preset_emotion else []
+            primary_emotion = preset_emotion
+
         # Use pre-set emotion from input JSON if available; otherwise run sentiment analysis
-        if preset_emotion:
-            emotion = preset_emotion
+        if primary_emotion:
+            emotion = primary_emotion
             sentiment = "POS" if emotion in ("joy", "surprise") else ("NEG" if emotion in ("anger", "disgust", "sadness", "fear") else "NEU")
-            logger.debug(f"  {cid}: using pre-set emotion={emotion}")
+            logger.debug(f"  {cid}: using pre-set emotion={emotion_list}")
         elif use_transformers:
             sentiment, emotion = _analyze_sentiment_transformers(text)
         else:
@@ -319,11 +396,37 @@ def run(config: dict) -> dict:
         comment["sentiment"] = sentiment
         comment["emotion"] = emotion
 
-        # Randomly choose video meme or image meme (50/50 when both types exist)
+        # Check for manual clip override from raw_content.json
+        manual = manual_clips.get(cid)
+        if manual:
+            manual_clip = manual.get("meme_clip", "")
+            manual_img = manual.get("meme_image", "")
+            if manual_clip and Path(manual_clip).exists():
+                comment["meme_type"] = "video"
+                comment["meme_clip"] = manual_clip
+                comment["meme_image"] = ""
+                comment["sfx"] = _select_sfx(emotion)
+                logger.info(f"  {cid}: manual meme_clip={Path(manual_clip).name}")
+                used_in_job.add(manual_clip)
+                continue
+            elif manual_img and Path(manual_img).exists():
+                comment["meme_type"] = "image"
+                comment["meme_clip"] = ""
+                comment["meme_image"] = manual_img
+                comment["sfx"] = _select_sfx(emotion)
+                logger.info(f"  {cid}: manual meme_image={Path(manual_img).name}")
+                used_in_job.add(manual_img)
+                continue
+
+        # Randomly choose video meme or image meme
+        # Config override: config["meme_type"] = "video" | "image" | None (auto)
+        meme_type_override = config.get("meme_type")
         has_video = conn.execute("SELECT 1 FROM memes WHERE meme_type='video' LIMIT 1").fetchone()
         has_image = conn.execute("SELECT 1 FROM memes WHERE meme_type='image' LIMIT 1").fetchone()
 
-        if has_video and has_image:
+        if meme_type_override in ("video", "image"):
+            chosen_type = meme_type_override
+        elif has_video and has_image:
             # 75% video, 25% image
             chosen_type = random.choices(["video", "image"], weights=[75, 25])[0]
         elif has_image:
@@ -331,9 +434,16 @@ def run(config: dict) -> dict:
         else:
             chosen_type = "video"
 
-        meme_path, meme_type = _select_meme(conn, emotion, job_id,
-                                            used_in_job=used_in_job,
-                                            meme_type=chosen_type)
+        # Try each emotion in the list until a meme is found
+        max_dur = config.get("meme_max_duration", 4.0)
+        meme_path, meme_type = "", "video"
+        for try_emotion in (emotion_list if emotion_list else [emotion]):
+            meme_path, meme_type = _select_meme(conn, try_emotion, job_id,
+                                                used_in_job=used_in_job,
+                                                meme_type=chosen_type,
+                                                max_duration=max_dur)
+            if meme_path:
+                break
         if meme_path:
             used_in_job.add(meme_path)
 

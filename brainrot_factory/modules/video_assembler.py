@@ -8,6 +8,7 @@ Output: H.264, 30fps, 8-10 Mbps, AAC 192kbps
 import json
 import math
 import os
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -88,6 +89,108 @@ def _check_ass_filter() -> bool:
         return False
     except Exception:
         return False
+
+
+def _ass_time_to_seconds(t: str) -> float:
+    """Convert ASS time H:MM:SS.cc to float seconds."""
+    t = t.strip()
+    h, m, rest = t.split(":")
+    s, cs = rest.split(".")
+    return int(h) * 3600 + int(m) * 60 + int(s) + int(cs) / 100.0
+
+
+def _parse_ass_captions(ass_path: str) -> list:
+    """
+    Parse ASS Dialogue lines into (start, end, plain_text) tuples.
+    Strips all {\\k} and other ASS override tags.
+    """
+    entries = []
+    with open(ass_path, encoding="utf-8") as f:
+        for line in f:
+            if not line.startswith("Dialogue:"):
+                continue
+            parts = line.strip().split(",", 9)
+            if len(parts) < 10:
+                continue
+            try:
+                start = _ass_time_to_seconds(parts[1])
+                end = _ass_time_to_seconds(parts[2])
+            except Exception:
+                continue
+            text = re.sub(r"\{[^}]*\}", "", parts[9]).strip()
+            if text:
+                entries.append((start, end, text))
+    return entries
+
+
+def _find_vietnamese_font() -> str:
+    """Return path to a font file that supports Vietnamese characters."""
+    candidates = [
+        # Project fonts (Be Vietnam Pro)
+        "assets/fonts/BeVietnamPro-Bold.ttf",
+        "assets/fonts/BeVietnamPro-Regular.ttf",
+        # macOS system fonts
+        "/Library/Fonts/Be Vietnam Pro Bold.ttf",
+        "/Library/Fonts/Be Vietnam Pro.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Unicode MS.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
+    ]
+    for c in candidates:
+        if Path(c).exists():
+            return c
+    return ""
+
+
+def _build_drawtext_captions(
+    ass_path: str,
+    current_video: str,
+    filter_parts: list,
+) -> str:
+    """
+    Fallback caption burner using ffmpeg drawtext filter.
+    Parses ASS Dialogue lines, writes each line's text to a temp file,
+    then chains drawtext filters with enable expressions.
+    Returns the label of the final video output.
+    """
+    entries = _parse_ass_captions(ass_path)
+    if not entries:
+        logger.warning("No caption entries parsed from ASS file")
+        return current_video
+
+    font_path = _find_vietnamese_font()
+    tmpdir = Path(tempfile.mkdtemp())
+
+    for i, (start, end, text) in enumerate(entries):
+        # Write text to temp file to avoid escaping Unicode in filter string
+        txt_file = tmpdir / f"cap_{i:04d}.txt"
+        txt_file.write_text(text, encoding="utf-8")
+
+        out_label = f"[vcap{i}]"
+
+        opts = [
+            f"textfile={txt_file}",
+            "fontsize=52",
+            "fontcolor=white",
+            "borderw=3",
+            "bordercolor=black@0.9",
+            "x=(w-text_w)/2",
+            "y=h*0.82",
+            f"enable='between(t,{start:.3f},{end:.3f})'",
+        ]
+        if font_path:
+            # Escape colon in font path (rare on mac but safe)
+            escaped_font = font_path.replace(":", "\\:")
+            opts.insert(1, f"fontfile={escaped_font}")
+
+        filter_parts.append(
+            f"{current_video}drawtext={':'.join(opts)}{out_label}"
+        )
+        current_video = out_label
+
+    logger.info(f"Drawtext captions: {len(entries)} lines")
+    return current_video
 
 
 def _get_video_duration(path: str) -> float:
@@ -351,17 +454,22 @@ def _build_ffmpeg_command(config: dict, timeline: list, total_duration: float, o
                 )
                 audio_inputs.append(sfx_label)
         else:
-            # Video meme: use its own audio track
-            meme_audio_label = f"[mema{meme_input}]"
-            filter_parts.append(
-                f"[{meme_input}:a]"
-                f"asetpts=PTS-STARTPTS,"
-                f"volume=0.8,"
-                f"adelay={int(seg['start']*1000)}|{int(seg['start']*1000)},"
-                f"apad=whole_dur={total_duration}"
-                f"{meme_audio_label}"
-            )
-            audio_inputs.append(meme_audio_label)
+            # Video meme: use its own audio track (only if it has one)
+            has_audio = subprocess.run(
+                ["ffprobe", "-v", "quiet", "-show_streams", "-select_streams", "a", str(tmp)],
+                capture_output=True, text=True
+            ).stdout.strip()
+            if has_audio:
+                meme_audio_label = f"[mema{meme_input}]"
+                filter_parts.append(
+                    f"[{meme_input}:a]"
+                    f"asetpts=PTS-STARTPTS,"
+                    f"volume=0.8,"
+                    f"adelay={int(seg['start']*1000)}|{int(seg['start']*1000)},"
+                    f"apad=whole_dur={total_duration}"
+                    f"{meme_audio_label}"
+                )
+                audio_inputs.append(meme_audio_label)
 
     # Add BGM — use stream_loop on input for reliable looping
     if bgm_file and Path(bgm_file).exists():
@@ -392,17 +500,7 @@ def _build_ffmpeg_command(config: dict, timeline: list, total_duration: float, o
             f"{''.join(audio_inputs)}amix=inputs={len(audio_inputs)}:duration=longest:normalize=0[audio_out]"
         )
 
-    # Apply captions — only if ass filter is available in this ffmpeg build
-    if captions_path and Path(captions_path).exists() and _check_ass_filter():
-        abs_ass = str(Path(captions_path).resolve())
-        # FFmpeg filter_complex requires escaping backslashes, colons, single quotes
-        abs_ass_escaped = abs_ass.replace("\\", "\\\\").replace("'", "\\'").replace(":", "\\:")
-        filter_parts.append(
-            f"{current_video}ass='{abs_ass_escaped}'[v_final]"
-        )
-        current_video = "[v_final]"
-    elif captions_path and Path(captions_path).exists():
-        logger.warning("ass subtitle filter not available in this ffmpeg build — captions skipped")
+    # Captions: disabled (requires ffmpeg with libass — skipped for now)
 
     # Build filter_complex
     filter_complex = ";".join(filter_parts)

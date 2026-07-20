@@ -194,6 +194,16 @@ def main() -> None:
         video_config.setdefault("background", {})["file"] = args.background
     if args.bgm:
         video_config.setdefault("audio", {})["bgm"] = args.bgm
+    elif not video_config.get("audio", {}).get("bgm"):
+        # Auto-pick a random BGM from assets/backgrounds_music/
+        import random as _rnd
+        from pathlib import Path as _P
+        bgm_root = _P("assets/backgrounds_music")
+        bgm_files = list(bgm_root.rglob("*.mp3")) + list(bgm_root.rglob("*.wav"))
+        if bgm_files:
+            picked = str(_rnd.choice(bgm_files))
+            video_config.setdefault("audio", {})["bgm"] = picked
+            logger.info(f"Auto BGM: {picked}")
     if args.tts_rate:
         video_config.setdefault("audio", {})["tts_rate"] = args.tts_rate
     # Always inject bgm_volume from config so video_assembler reads correct value

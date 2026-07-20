@@ -1,0 +1,94 @@
+2026-03-30 01:34:28 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/mindset_test2.log
+2026-03-30 01:34:28 | INFO     | === Brainrot Video Factory | job_id=mindset_test2 | lang=en ===
+2026-03-30 01:34:28 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 01:34:28 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 01:34:28 | INFO     | [RUN ] scraper ...
+2026-03-30 01:34:28 | INFO     | Scraping platform: manual
+2026-03-30 01:34:28 | INFO     | Scraped 6 comments
+2026-03-30 01:34:28 | SUCCESS  | [DONE] scraper
+2026-03-30 01:34:28 | INFO     | [RUN ] card_renderer ...
+2026-03-30 01:34:28 | INFO     | Rendering 7 cards (Threads UI style)...
+2026-03-30 01:34:28 | INFO     | Fetching avatar images...
+2026-03-30 01:34:30 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/topic.png
+2026-03-30 01:34:30 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c001.png
+2026-03-30 01:34:30 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c002.png
+2026-03-30 01:34:31 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c003.png
+2026-03-30 01:34:31 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c004.png
+2026-03-30 01:34:31 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c005.png
+2026-03-30 01:34:31 | DEBUG    | Rendered card: output/jobs/mindset_test2/cards/c006.png
+2026-03-30 01:34:31 | INFO     | Rendered 7 cards to output/jobs/mindset_test2/cards
+2026-03-30 01:34:31 | SUCCESS  | [DONE] card_renderer
+2026-03-30 01:34:31 | INFO     | [RUN ] tts_engine ...
+2026-03-30 01:34:31 | INFO     | Starting TTS generation...
+2026-03-30 01:34:31 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 01:34:35 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 01:34:38 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 01:34:40 | DEBUG    | google/gemma-3-12b-it:free rate-limited, trying next...
+2026-03-30 01:34:40 | WARNING  | mistralai/mistral-7b-instruct:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for mistralai/mistral-7b-instruct:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:34:40 | WARNING  | qwen/qwen3-8b:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for qwen/qwen3-8b:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:34:40 | WARNING  | All models failed — using original texts
+2026-03-30 01:34:40 | INFO     | TTS: topic (59 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:34:41 | INFO     | TTS: c001 (98 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:34:41 | DEBUG    |   -> c001: 5.4s, 23 words
+2026-03-30 01:34:41 | INFO     | TTS: c002 (54 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:34:42 | DEBUG    |   -> c002: 3.3s, 13 words
+2026-03-30 01:34:42 | INFO     | TTS: c003 (133 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:34:43 | DEBUG    |   -> c003: 6.7s, 28 words
+2026-03-30 01:34:43 | INFO     | TTS: c004 (478 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:34:43 | DEBUG    |   -> c004: 26.6s, 112 words
+2026-03-30 01:34:43 | INFO     | TTS: c005 (88 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:34:44 | DEBUG    |   -> c005: 5.5s, 22 words
+2026-03-30 01:34:44 | INFO     | TTS: c006 (138 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:34:44 | DEBUG    |   -> c006: 7.2s, 34 words
+2026-03-30 01:34:44 | INFO     | TTS complete: 6/6 comments
+2026-03-30 01:34:44 | SUCCESS  | [DONE] tts_engine
+2026-03-30 01:34:44 | INFO     | [RUN ] caption_sync ...
+2026-03-30 01:34:44 | INFO     | Building karaoke captions...
+2026-03-30 01:34:44 | INFO     | Caption file written: output/jobs/mindset_test2/captions/captions.ass (52 dialogue lines)
+2026-03-30 01:34:44 | SUCCESS  | [DONE] caption_sync
+2026-03-30 01:34:44 | INFO     | [RUN ] meme_engine ...
+2026-03-30 01:34:44 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 01:34:44 | DEBUG    | Loaded original emotions for 0 comments from manual input
+2026-03-30 01:34:44 | DEBUG    |   c001: NEU/neutral → [image] joy_21.jpg
+2026-03-30 01:34:44 | DEBUG    |   c002: NEU/neutral → [video] a_du_giat_minh.mp4
+2026-03-30 01:34:44 | DEBUG    |   c003: POS/surprise → [video] ngac_nhien.mp4
+2026-03-30 01:34:44 | DEBUG    |   c004: POS/surprise → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 01:34:44 | DEBUG    |   c005: NEU/neutral → [video] cuoi_ong_gia.mp4
+2026-03-30 01:34:44 | DEBUG    |   c006: NEU/neutral → [video] damn_meme.mp4
+2026-03-30 01:34:44 | INFO     | Meme/SFX assigned to 6 comments
+2026-03-30 01:34:44 | SUCCESS  | [DONE] meme_engine
+2026-03-30 01:34:44 | INFO     | [RUN ] video_assembler ...
+2026-03-30 01:34:44 | INFO     | Background: assets/backgrounds/subway-surfer/part09.mp4
+2026-03-30 01:34:44 | INFO     | Building video timeline...
+2026-03-30 01:34:44 | INFO     | Total video duration: 83.0s (14 segments)
+2026-03-30 01:34:44 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test2/final_video.mp4
+2026-03-30 01:34:45 | DEBUG    | Pre-rendered meme (image): assets/memes_img/joy/joy_21.jpg → /tmp/meme_prerender_8243934597013397164.mp4
+2026-03-30 01:34:46 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_1602222631598609205.mp4
+2026-03-30 01:34:47 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_8259276184001573919.mp4
+2026-03-30 01:34:47 | DEBUG    | Pre-rendered meme (video): assets/memes/neutral/ket_thuc_hai_huoc.mp4 → /tmp/meme_prerender_5899585420721100927.mp4
+2026-03-30 01:34:48 | DEBUG    | Pre-rendered meme (video): assets/memes/joy/cuoi_ong_gia.mp4 → /tmp/meme_prerender_308041238142780826.mp4
+2026-03-30 01:34:48 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_1933793707500918950.mp4
+2026-03-30 01:34:48 | INFO     | ass filter unavailable — using drawtext fallback for captions
+2026-03-30 01:34:48 | INFO     | Drawtext captions: 52 lines
+2026-03-30 01:34:48 | INFO     | Running FFmpeg...
+2026-03-30 01:34:48 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/subway-surfer/part09.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpwrhm5wdj/brand_watermark.png...
+2026-03-30 01:34:49 | WARNING  | Primary FFmpeg failed, trying fallback...
+2026-03-30 01:34:49 | DEBUG    | FFmpeg stderr: ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.6.4.2)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gpl --enable-libsvtav1 --enable-libopus --enable-libx264 --enable-libmp3lame --enable-libdav1d --enable-libvpx --enable-libx265 --enable-openssl --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60. 26.100 / 60. 26.100
+  libavcodec     62. 28.100 / 62. 28.100
+  libavformat    62. 12.100 / 62. 12.100
+  libavdevice    62.  3.100 / 62.  3.100
+  libavfilter    11. 14.100 / 11. 14.100
+  libswscale      9.  5.100 /  9.  5.100
+  libswresample   6.  3.100 /  6.  3.100
+[AVFilterGraph @ 0x94ac0bb80] No such filter: 'drawtext'
+Error : Filter not found
+
+2026-03-30 01:34:49 | WARNING  | Using fallback video assembly (black background, audio only)
+2026-03-30 01:34:54 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test2/final_video.mp4 (1.5 MB, 83.0s)
+2026-03-30 01:34:54 | SUCCESS  | [DONE] video_assembler
+2026-03-30 01:34:54 | SUCCESS  | === Job complete! ===
+2026-03-30 01:34:54 | SUCCESS  | Output: not yet produced
+2026-03-30 01:34:54 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test2/video_config.json

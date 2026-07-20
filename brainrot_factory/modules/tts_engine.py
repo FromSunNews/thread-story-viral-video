@@ -29,7 +29,7 @@ _VI_SLANG = {
     r'\bvkl\b':     'vãi kẹo lạc',
     r'\bvcl\b':     'vãi cả lúa',
     r'\bvl\b':      'vãi lúa',
-    r'\bcc\b':      'cái con',
+    r'\bcc\b':      'cục kẹo',
     r'\bcmn\b':     'cái mặt này',
     r'\bkí lùm\b':  'kí lùm',
 
@@ -120,11 +120,11 @@ _VI_SLANG = {
     r'={1,}[)>]{2,}': '',      # =))) =>>
     r':{1,}[)>]{2,}': '',      # :))) :>>
     r'\^{2,}':      '',
-    r'heh+':        '',
-    r'he+':         '',
-    r'ha{3,}':      '',
-    r'hi{3,}':      '',
-    r'hu{3,}':      '',
+    r'\bheh+\b':    '',
+    r'\bhe{2,}\b':  '',        # hee, heee — but NOT 'he' alone (breaks Vietnamese words like 'nghe', 'thế')
+    r'\bha{3,}\b':  '',
+    r'\bhi{3,}\b':  '',
+    r'\bhu{3,}\b':  '',
 
     # --- Punctuation / typography ---
     r'~+':          '',        # trailing tildes

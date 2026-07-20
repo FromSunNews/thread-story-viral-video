@@ -1,0 +1,156 @@
+2026-03-30 01:25:10 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/mindset_test.log
+2026-03-30 01:25:10 | INFO     | === Brainrot Video Factory | job_id=mindset_test | lang=vi ===
+2026-03-30 01:25:10 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 01:25:10 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 01:25:10 | INFO     | [RUN ] scraper ...
+2026-03-30 01:25:10 | INFO     | Scraping platform: manual
+2026-03-30 01:25:10 | INFO     | Scraped 6 comments
+2026-03-30 01:25:10 | SUCCESS  | [DONE] scraper
+2026-03-30 01:25:10 | INFO     | [RUN ] card_renderer ...
+2026-03-30 01:25:10 | INFO     | Rendering 7 cards (Threads UI style)...
+2026-03-30 01:25:10 | INFO     | Fetching avatar images...
+2026-03-30 01:25:11 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/topic.png
+2026-03-30 01:25:11 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c001.png
+2026-03-30 01:25:12 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c002.png
+2026-03-30 01:25:12 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c003.png
+2026-03-30 01:25:12 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c004.png
+2026-03-30 01:25:12 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c005.png
+2026-03-30 01:25:13 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c006.png
+2026-03-30 01:25:13 | INFO     | Rendered 7 cards to output/jobs/mindset_test/cards
+2026-03-30 01:25:13 | SUCCESS  | [DONE] card_renderer
+2026-03-30 01:25:13 | INFO     | [RUN ] tts_engine ...
+2026-03-30 01:25:13 | INFO     | Starting TTS generation...
+2026-03-30 01:25:13 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 01:25:17 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 01:25:20 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 01:25:20 | WARNING  | openai/gpt-oss-120b:free failed: Error code: 404 - {'error': {'message': 'No endpoints available matching your guardrail restrictions and data policy. Configure: https://openrouter.ai/settings/privacy', 'code': 404}}
+2026-03-30 01:25:23 | DEBUG    | nousresearch/hermes-3-llama-3.1-405b:free rate-limited, trying next...
+2026-03-30 01:25:26 | DEBUG    | google/gemma-3-12b-it:free rate-limited, trying next...
+2026-03-30 01:25:26 | WARNING  | All models failed — using original texts
+2026-03-30 01:25:26 | INFO     | TTS: topic (56 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:25:27 | INFO     | TTS: c001 (98 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:25:29 | DEBUG    |   -> c001: 5.4s, 23 words
+2026-03-30 01:25:29 | INFO     | TTS: c002 (54 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:25:30 | DEBUG    |   -> c002: 3.3s, 13 words
+2026-03-30 01:25:30 | INFO     | TTS: c003 (133 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:25:31 | DEBUG    |   -> c003: 6.7s, 28 words
+2026-03-30 01:25:31 | INFO     | TTS: c004 (448 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:25:40 | DEBUG    |   -> c004: 26.6s, 105 words
+2026-03-30 01:25:40 | INFO     | TTS: c005 (88 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:25:42 | DEBUG    |   -> c005: 5.5s, 22 words
+2026-03-30 01:25:42 | INFO     | TTS: c006 (121 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:25:45 | DEBUG    |   -> c006: 7.4s, 31 words
+2026-03-30 01:25:45 | INFO     | TTS complete: 6/6 comments
+2026-03-30 01:25:45 | SUCCESS  | [DONE] tts_engine
+2026-03-30 01:25:45 | INFO     | [RUN ] caption_sync ...
+2026-03-30 01:25:45 | INFO     | Building karaoke captions...
+2026-03-30 01:25:45 | INFO     | Caption file written: output/jobs/mindset_test/captions/captions.ass (50 dialogue lines)
+2026-03-30 01:25:45 | SUCCESS  | [DONE] caption_sync
+2026-03-30 01:25:45 | INFO     | [RUN ] meme_engine ...
+2026-03-30 01:25:45 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 01:25:45 | DEBUG    | Loaded original emotions for 0 comments from manual input
+2026-03-30 01:25:45 | DEBUG    |   c001: NEU/neutral → [image] joy_25.jpg
+2026-03-30 01:25:45 | DEBUG    |   c002: NEU/neutral → [video] damn_meme.mp4
+2026-03-30 01:25:45 | DEBUG    |   c003: POS/surprise → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 01:25:45 | DEBUG    |   c004: POS/surprise → [image] surprise_01.png
+2026-03-30 01:25:45 | DEBUG    |   c005: NEU/neutral → [video] a_du_giat_minh.mp4
+2026-03-30 01:25:45 | DEBUG    |   c006: NEU/neutral → [video] cuoi_ong_gia.mp4
+2026-03-30 01:25:45 | INFO     | Meme/SFX assigned to 6 comments
+2026-03-30 01:25:45 | SUCCESS  | [DONE] meme_engine
+2026-03-30 01:25:45 | INFO     | [RUN ] video_assembler ...
+2026-03-30 01:25:45 | INFO     | Background: assets/backgrounds/subway-surfer/part10.mp4
+2026-03-30 01:25:45 | INFO     | Building video timeline...
+2026-03-30 01:25:45 | INFO     | Total video duration: 82.8s (14 segments)
+2026-03-30 01:25:45 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/final_video.mp4
+2026-03-30 01:25:46 | DEBUG    | Pre-rendered meme (image): assets/memes_img/joy/joy_25.jpg → /tmp/meme_prerender_7311328907475269182.mp4
+2026-03-30 01:25:46 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_1553277617841925366.mp4
+2026-03-30 01:25:47 | DEBUG    | Pre-rendered meme (video): assets/memes/neutral/ket_thuc_hai_huoc.mp4 → /tmp/meme_prerender_3167704704683202592.mp4
+2026-03-30 01:25:47 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_01.png → /tmp/meme_prerender_6142580461021436720.mp4
+2026-03-30 01:25:48 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_7195799388465217718.mp4
+2026-03-30 01:25:49 | DEBUG    | Pre-rendered meme (video): assets/memes/joy/cuoi_ong_gia.mp4 → /tmp/meme_prerender_3784659433309586244.mp4
+2026-03-30 01:25:49 | WARNING  | ass subtitle filter not available in this ffmpeg build — captions skipped
+2026-03-30 01:25:49 | INFO     | Running FFmpeg...
+2026-03-30 01:25:49 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/subway-surfer/part10.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp1blr8csk/brand_watermark.png...
+2026-03-30 01:26:01 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/final_video.mp4 (80.6 MB, 82.8s)
+2026-03-30 01:26:01 | SUCCESS  | [DONE] video_assembler
+2026-03-30 01:26:01 | SUCCESS  | === Job complete! ===
+2026-03-30 01:26:01 | SUCCESS  | Output: not yet produced
+2026-03-30 01:26:01 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/video_config.json
+2026-03-30 01:29:46 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/mindset_test.log
+2026-03-30 01:29:46 | INFO     | === Brainrot Video Factory | job_id=mindset_test | lang=vi ===
+2026-03-30 01:29:46 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 01:29:46 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 01:29:46 | INFO     | [RUN ] scraper ...
+2026-03-30 01:29:46 | INFO     | Scraping platform: manual
+2026-03-30 01:29:46 | INFO     | Scraped 6 comments
+2026-03-30 01:29:46 | SUCCESS  | [DONE] scraper
+2026-03-30 01:29:46 | INFO     | [RUN ] card_renderer ...
+2026-03-30 01:29:46 | INFO     | Rendering 7 cards (Threads UI style)...
+2026-03-30 01:29:46 | INFO     | Fetching avatar images...
+2026-03-30 01:29:47 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/topic.png
+2026-03-30 01:29:47 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c001.png
+2026-03-30 01:29:48 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c002.png
+2026-03-30 01:29:48 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c003.png
+2026-03-30 01:29:48 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c004.png
+2026-03-30 01:29:49 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c005.png
+2026-03-30 01:29:49 | DEBUG    | Rendered card: output/jobs/mindset_test/cards/c006.png
+2026-03-30 01:29:49 | INFO     | Rendered 7 cards to output/jobs/mindset_test/cards
+2026-03-30 01:29:49 | SUCCESS  | [DONE] card_renderer
+2026-03-30 01:29:49 | INFO     | [RUN ] tts_engine ...
+2026-03-30 01:29:49 | INFO     | Starting TTS generation...
+2026-03-30 01:29:49 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 01:29:54 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 01:29:55 | WARNING  | google/gemma-3-27b-it:free failed: Error code: 400 - {'error': {'message': 'Provider returned error', 'code': 400, 'metadata': {'raw': '{\n  "error": {\n    "code": 400,\n    "message": "Developer instruction is not enabled for models/gemma-3-27b-it",\n    "status": "INVALID_ARGUMENT"\n  }\n}\n', 'provider_name': 'Google AI Studio', 'is_byok': False}}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:29:58 | DEBUG    | google/gemma-3-12b-it:free rate-limited, trying next...
+2026-03-30 01:29:58 | WARNING  | mistralai/mistral-7b-instruct:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for mistralai/mistral-7b-instruct:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:29:58 | WARNING  | qwen/qwen3-8b:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for qwen/qwen3-8b:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:29:58 | WARNING  | All models failed — using original texts
+2026-03-30 01:29:58 | INFO     | TTS: topic (59 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:30:00 | INFO     | TTS: c001 (98 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:30:01 | DEBUG    |   -> c001: 5.4s, 23 words
+2026-03-30 01:30:01 | INFO     | TTS: c002 (54 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:30:01 | DEBUG    |   -> c002: 3.3s, 13 words
+2026-03-30 01:30:01 | INFO     | TTS: c003 (133 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:30:02 | DEBUG    |   -> c003: 6.7s, 28 words
+2026-03-30 01:30:02 | INFO     | TTS: c004 (478 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:30:10 | DEBUG    |   -> c004: 26.6s, 112 words
+2026-03-30 01:30:10 | INFO     | TTS: c005 (88 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:30:10 | DEBUG    |   -> c005: 5.5s, 22 words
+2026-03-30 01:30:10 | INFO     | TTS: c006 (138 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:30:13 | DEBUG    |   -> c006: 7.2s, 34 words
+2026-03-30 01:30:13 | INFO     | TTS complete: 6/6 comments
+2026-03-30 01:30:13 | SUCCESS  | [DONE] tts_engine
+2026-03-30 01:30:13 | INFO     | [RUN ] caption_sync ...
+2026-03-30 01:30:13 | INFO     | Building karaoke captions...
+2026-03-30 01:30:13 | INFO     | Caption file written: output/jobs/mindset_test/captions/captions.ass (52 dialogue lines)
+2026-03-30 01:30:13 | SUCCESS  | [DONE] caption_sync
+2026-03-30 01:30:13 | INFO     | [RUN ] meme_engine ...
+2026-03-30 01:30:13 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 01:30:13 | DEBUG    | Loaded original emotions for 0 comments from manual input
+2026-03-30 01:30:13 | DEBUG    |   c001: NEU/neutral → [video] a_du_giat_minh.mp4
+2026-03-30 01:30:13 | DEBUG    |   c002: NEU/neutral → [video] anh_da_den_khoc.mp4
+2026-03-30 01:30:13 | DEBUG    |   c003: POS/surprise → [video] ngac_nhien.mp4
+2026-03-30 01:30:13 | DEBUG    |   c004: POS/surprise → [video] cuoi_ong_gia.mp4
+2026-03-30 01:30:13 | DEBUG    |   c005: NEU/neutral → [video] damn_meme.mp4
+2026-03-30 01:30:13 | DEBUG    |   c006: NEU/neutral → [video] dap_may_tinh.mp4
+2026-03-30 01:30:13 | INFO     | Meme/SFX assigned to 6 comments
+2026-03-30 01:30:13 | SUCCESS  | [DONE] meme_engine
+2026-03-30 01:30:13 | INFO     | [RUN ] video_assembler ...
+2026-03-30 01:30:13 | INFO     | Background: assets/backgrounds/minecraft-parkour/part12.mp4
+2026-03-30 01:30:13 | INFO     | Building video timeline...
+2026-03-30 01:30:13 | INFO     | Total video duration: 80.2s (14 segments)
+2026-03-30 01:30:13 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/final_video.mp4
+2026-03-30 01:30:14 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_168076336087639671.mp4
+2026-03-30 01:30:15 | DEBUG    | Pre-rendered meme (video): assets/memes/sadness/anh_da_den_khoc.mp4 → /tmp/meme_prerender_3226997560853549389.mp4
+2026-03-30 01:30:16 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_9141266745349245738.mp4
+2026-03-30 01:30:16 | DEBUG    | Pre-rendered meme (video): assets/memes/joy/cuoi_ong_gia.mp4 → /tmp/meme_prerender_3047728344327142568.mp4
+2026-03-30 01:30:17 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_3153453044025955018.mp4
+2026-03-30 01:30:17 | DEBUG    | Pre-rendered meme (video): assets/memes/anger/dap_may_tinh.mp4 → /tmp/meme_prerender_7240984718302601374.mp4
+2026-03-30 01:30:17 | WARNING  | ass subtitle filter not available in this ffmpeg build — captions skipped
+2026-03-30 01:30:17 | INFO     | Running FFmpeg...
+2026-03-30 01:30:17 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part12.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpwc0kv7db/brand_watermark.png...
+2026-03-30 01:30:31 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/final_video.mp4 (77.5 MB, 80.2s)
+2026-03-30 01:30:31 | SUCCESS  | [DONE] video_assembler
+2026-03-30 01:30:31 | SUCCESS  | === Job complete! ===
+2026-03-30 01:30:31 | SUCCESS  | Output: not yet produced
+2026-03-30 01:30:31 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/mindset_test/video_config.json

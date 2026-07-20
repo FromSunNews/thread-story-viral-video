@@ -1,0 +1,569 @@
+2026-03-30 11:59:34 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 11:59:34 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 11:59:34 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 11:59:34 | INFO     | Auto BGM: assets/backgrounds_music/joy/mii_channel_theme.mp3
+2026-03-30 11:59:34 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 11:59:34 | INFO     | [RUN ] scraper ...
+2026-03-30 11:59:34 | INFO     | Scraping platform: threads
+2026-03-30 12:00:00 | INFO     | Scraped 5 comments
+2026-03-30 12:00:00 | SUCCESS  | [DONE] scraper
+2026-03-30 12:00:00 | INFO     | [RUN ] card_renderer ...
+2026-03-30 12:00:00 | INFO     | Rendering 6 cards (Threads UI style)...
+2026-03-30 12:00:01 | INFO     | Fetching avatar images...
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for topic
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for c001
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for c002
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for c003
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for c004
+2026-03-30 12:00:02 | DEBUG    | Avatar fetched for c005
+2026-03-30 12:00:03 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/topic.png
+2026-03-30 12:00:04 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/c001.png
+2026-03-30 12:00:04 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/c002.png
+2026-03-30 12:00:04 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/c003.png
+2026-03-30 12:00:04 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/c004.png
+2026-03-30 12:00:05 | DEBUG    | Rendered card: output/jobs/nhi_final/cards/c005.png
+2026-03-30 12:00:05 | INFO     | Rendered 6 cards to output/jobs/nhi_final/cards
+2026-03-30 12:00:05 | SUCCESS  | [DONE] card_renderer
+2026-03-30 12:00:05 | INFO     | [RUN ] tts_engine ...
+2026-03-30 12:00:05 | INFO     | Starting TTS generation...
+2026-03-30 12:00:05 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 12:00:06 | WARNING  | deepseek/deepseek-chat-v3-0324:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-chat-v3-0324:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 12:00:06 | WARNING  | deepseek/deepseek-r1:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-r1:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 12:00:10 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 12:00:12 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 12:00:15 | DEBUG    | google/gemma-3-4b-it:free rate-limited, trying next...
+2026-03-30 12:00:15 | WARNING  | microsoft/phi-4:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for microsoft/phi-4:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 12:00:15 | WARNING  | All models failed — using original texts
+2026-03-30 12:00:15 | INFO     | TTS: topic (68 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 12:00:16 | INFO     | TTS: c001 (74 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 12:00:18 | DEBUG    |   -> c001: 4.4s, 18 words
+2026-03-30 12:00:18 | INFO     | TTS: c002 (93 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 12:00:20 | DEBUG    |   -> c002: 5.7s, 22 words
+2026-03-30 12:00:20 | INFO     | TTS: c003 (94 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 12:00:22 | DEBUG    |   -> c003: 6.7s, 23 words
+2026-03-30 12:00:22 | INFO     | TTS: c004 (79 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 12:00:24 | DEBUG    |   -> c004: 5.3s, 19 words
+2026-03-30 12:00:24 | INFO     | TTS: c005 (266 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 12:00:29 | DEBUG    |   -> c005: 15.7s, 65 words
+2026-03-30 12:00:29 | INFO     | TTS complete: 5/5 comments
+2026-03-30 12:00:29 | SUCCESS  | [DONE] tts_engine
+2026-03-30 12:00:29 | INFO     | [RUN ] caption_sync ...
+2026-03-30 12:00:29 | INFO     | Building karaoke captions...
+2026-03-30 12:00:29 | INFO     | Caption file written: output/jobs/nhi_final/captions/captions.ass (34 dialogue lines)
+2026-03-30 12:00:29 | SUCCESS  | [DONE] caption_sync
+2026-03-30 12:00:29 | INFO     | [RUN ] meme_engine ...
+2026-03-30 12:00:29 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 12:00:29 | DEBUG    |   c001: POS/surprise → [video] cuoi_ong_gia.mp4
+2026-03-30 12:00:29 | DEBUG    |   c002: NEU/neutral → [video] anh_da_den_khoc.mp4
+2026-03-30 12:00:29 | DEBUG    |   c003: NEU/neutral → [video] dap_may_tinh.mp4
+2026-03-30 12:00:29 | DEBUG    |   c004: POS/surprise → [video] damn_meme.mp4
+2026-03-30 12:00:29 | DEBUG    |   c005: POS/surprise → [video] a_du_giat_minh.mp4
+2026-03-30 12:00:29 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 12:00:29 | SUCCESS  | [DONE] meme_engine
+2026-03-30 12:00:29 | INFO     | [RUN ] video_assembler ...
+2026-03-30 12:00:29 | INFO     | Background: assets/backgrounds/minecraft-parkour/part03.mp4
+2026-03-30 12:00:29 | INFO     | Building video timeline...
+2026-03-30 12:00:29 | INFO     | Total video duration: 59.9s (12 segments)
+2026-03-30 12:00:29 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 12:00:30 | DEBUG    | Pre-rendered meme (video): assets/memes/joy/cuoi_ong_gia.mp4 → /tmp/meme_prerender_8586500398693686121.mp4
+2026-03-30 12:00:31 | DEBUG    | Pre-rendered meme (video): assets/memes/sadness/anh_da_den_khoc.mp4 → /tmp/meme_prerender_3795183277064451064.mp4
+2026-03-30 12:00:32 | DEBUG    | Pre-rendered meme (video): assets/memes/anger/dap_may_tinh.mp4 → /tmp/meme_prerender_3290624532245416420.mp4
+2026-03-30 12:00:33 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_1926121082730399200.mp4
+2026-03-30 12:00:34 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_3875314715220392008.mp4
+2026-03-30 12:00:34 | INFO     | Running FFmpeg...
+2026-03-30 12:00:34 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpm3ybigx3/brand_watermark.png...
+2026-03-30 12:00:45 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (58.7 MB, 59.9s)
+2026-03-30 12:00:45 | SUCCESS  | [DONE] video_assembler
+2026-03-30 12:00:45 | SUCCESS  | === Job complete! ===
+2026-03-30 12:00:45 | SUCCESS  | Output: not yet produced
+2026-03-30 12:00:45 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 12:31:05 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 12:31:05 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 12:31:05 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 12:31:05 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-30 12:31:05 | INFO     | [RUN ] meme_engine ...
+2026-03-30 12:31:05 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 12:31:05 | DEBUG    |   c001: POS/surprise → [image] surprise_08.png
+2026-03-30 12:31:05 | DEBUG    |   c002: NEU/neutral → [image] joy_08.jpg
+2026-03-30 12:31:05 | DEBUG    |   c003: NEU/neutral → [image] joy_03.jpg
+2026-03-30 12:31:05 | DEBUG    |   c004: POS/surprise → [video] cut-1.mp4
+2026-03-30 12:31:05 | DEBUG    |   c005: POS/surprise → [video] cut-2.mp4
+2026-03-30 12:31:05 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 12:31:05 | SUCCESS  | [DONE] meme_engine
+2026-03-30 12:31:05 | INFO     | [RUN ] video_assembler ...
+2026-03-30 12:31:05 | INFO     | Building video timeline...
+2026-03-30 12:31:05 | INFO     | Total video duration: 60.9s (12 segments)
+2026-03-30 12:31:05 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 12:31:05 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_08.png → /tmp/meme_prerender_6942951551006369498.mp4
+2026-03-30 12:31:06 | DEBUG    | Pre-rendered meme (image): assets/memes_img/joy/joy_08.jpg → /tmp/meme_prerender_4828748294511871967.mp4
+2026-03-30 12:31:06 | DEBUG    | Pre-rendered meme (image): assets/memes_img/joy/joy_03.jpg → /tmp/meme_prerender_2017872261258491167.mp4
+2026-03-30 12:31:07 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/cut-1.mp4 → /tmp/meme_prerender_9172048325828022871.mp4
+2026-03-30 12:31:08 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/cut-2.mp4 → /tmp/meme_prerender_6987153619340226999.mp4
+2026-03-30 12:31:08 | INFO     | Running FFmpeg...
+2026-03-30 12:31:08 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpv0lvywju/brand_watermark.png...
+2026-03-30 12:31:18 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (59.7 MB, 60.9s)
+2026-03-30 12:31:18 | SUCCESS  | [DONE] video_assembler
+2026-03-30 12:31:18 | SUCCESS  | === Job complete! ===
+2026-03-30 12:31:18 | SUCCESS  | Output: not yet produced
+2026-03-30 12:31:18 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 13:27:08 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 13:27:08 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 13:27:08 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 13:27:08 | INFO     | Pipeline: tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 13:27:08 | INFO     | [RUN ] tts_engine ...
+2026-03-30 13:27:08 | INFO     | Starting TTS generation...
+2026-03-30 13:27:08 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 13:27:09 | WARNING  | deepseek/deepseek-chat-v3-0324:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-chat-v3-0324:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:27:09 | WARNING  | deepseek/deepseek-r1:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-r1:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:27:13 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 13:27:16 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 13:27:18 | DEBUG    | google/gemma-3-4b-it:free rate-limited, trying next...
+2026-03-30 13:27:18 | WARNING  | microsoft/phi-4:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for microsoft/phi-4:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:27:18 | WARNING  | All models failed — using original texts
+2026-03-30 13:27:18 | INFO     | TTS: topic (68 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:27:19 | INFO     | TTS: c001 (74 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:27:20 | DEBUG    |   -> c001: 4.4s, 18 words
+2026-03-30 13:27:20 | INFO     | TTS: c002 (93 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:27:20 | DEBUG    |   -> c002: 5.7s, 22 words
+2026-03-30 13:27:20 | INFO     | TTS: c003 (94 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:27:22 | DEBUG    |   -> c003: 5.8s, 23 words
+2026-03-30 13:27:22 | INFO     | TTS: c004 (79 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:27:23 | DEBUG    |   -> c004: 5.3s, 19 words
+2026-03-30 13:27:23 | INFO     | TTS: c005 (266 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:27:24 | DEBUG    |   -> c005: 15.7s, 65 words
+2026-03-30 13:27:24 | INFO     | TTS complete: 5/5 comments
+2026-03-30 13:27:24 | SUCCESS  | [DONE] tts_engine
+2026-03-30 13:27:24 | INFO     | [RUN ] caption_sync ...
+2026-03-30 13:27:24 | INFO     | Building karaoke captions...
+2026-03-30 13:27:24 | INFO     | Caption file written: output/jobs/nhi_final/captions/captions.ass (34 dialogue lines)
+2026-03-30 13:27:24 | SUCCESS  | [DONE] caption_sync
+2026-03-30 13:27:24 | INFO     | [RUN ] meme_engine ...
+2026-03-30 13:27:24 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 13:27:24 | DEBUG    |   c001: POS/surprise → [video] cut-2.mp4
+2026-03-30 13:27:24 | DEBUG    |   c002: NEU/neutral → [video] a_du_giat_minh.mp4
+2026-03-30 13:27:24 | DEBUG    |   c003: NEU/neutral → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 13:27:24 | DEBUG    |   c004: POS/surprise → [video] damn_meme.mp4
+2026-03-30 13:27:24 | DEBUG    |   c005: POS/surprise → [image] surprise_01.png
+2026-03-30 13:27:24 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 13:27:24 | SUCCESS  | [DONE] meme_engine
+2026-03-30 13:27:24 | INFO     | [RUN ] video_assembler ...
+2026-03-30 13:27:24 | INFO     | Building video timeline...
+2026-03-30 13:27:24 | INFO     | Total video duration: 56.5s (11 segments)
+2026-03-30 13:27:24 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 13:27:26 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/cut-2.mp4 → /tmp/meme_prerender_7498640424422244413.mp4
+2026-03-30 13:27:27 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_7910900735163023695.mp4
+2026-03-30 13:27:27 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_7439812383397907327.mp4
+2026-03-30 13:27:28 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_01.png → /tmp/meme_prerender_65148172203729609.mp4
+2026-03-30 13:27:28 | INFO     | Running FFmpeg...
+2026-03-30 13:27:28 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpyaus5vjh/brand_watermark.png...
+2026-03-30 13:27:37 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (54.6 MB, 56.5s)
+2026-03-30 13:27:37 | SUCCESS  | [DONE] video_assembler
+2026-03-30 13:27:37 | SUCCESS  | === Job complete! ===
+2026-03-30 13:27:37 | SUCCESS  | Output: not yet produced
+2026-03-30 13:27:37 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 13:30:14 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 13:30:14 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 13:30:14 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 13:30:14 | INFO     | Pipeline: tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 13:30:14 | INFO     | [RUN ] tts_engine ...
+2026-03-30 13:30:14 | INFO     | Starting TTS generation...
+2026-03-30 13:30:14 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 13:30:15 | WARNING  | deepseek/deepseek-chat-v3-0324:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-chat-v3-0324:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:30:15 | WARNING  | deepseek/deepseek-r1:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-r1:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:30:18 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 13:30:21 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 13:30:23 | DEBUG    | google/gemma-3-4b-it:free rate-limited, trying next...
+2026-03-30 13:30:23 | WARNING  | microsoft/phi-4:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for microsoft/phi-4:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:30:23 | WARNING  | All models failed — using original texts
+2026-03-30 13:30:23 | INFO     | TTS: topic (68 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:30:24 | INFO     | TTS: c001 (75 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:30:27 | DEBUG    |   -> c001: 4.4s, 18 words
+2026-03-30 13:30:27 | INFO     | TTS: c002 (93 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:30:31 | DEBUG    |   -> c002: 5.7s, 22 words
+2026-03-30 13:30:31 | INFO     | TTS: c003 (94 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:30:32 | DEBUG    |   -> c003: 5.8s, 23 words
+2026-03-30 13:30:32 | INFO     | TTS: c004 (79 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:30:35 | DEBUG    |   -> c004: 5.3s, 19 words
+2026-03-30 13:30:35 | INFO     | TTS: c005 (266 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:30:40 | DEBUG    |   -> c005: 15.7s, 65 words
+2026-03-30 13:30:40 | INFO     | TTS complete: 5/5 comments
+2026-03-30 13:30:40 | SUCCESS  | [DONE] tts_engine
+2026-03-30 13:30:40 | INFO     | [RUN ] caption_sync ...
+2026-03-30 13:30:40 | INFO     | Building karaoke captions...
+2026-03-30 13:30:40 | INFO     | Caption file written: output/jobs/nhi_final/captions/captions.ass (34 dialogue lines)
+2026-03-30 13:30:40 | SUCCESS  | [DONE] caption_sync
+2026-03-30 13:30:40 | INFO     | [RUN ] meme_engine ...
+2026-03-30 13:30:40 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 13:30:40 | DEBUG    |   c001: POS/surprise → [video] cuoi_ong_gia.mp4
+2026-03-30 13:30:40 | DEBUG    |   c002: NEU/neutral → [video] dap_may_tinh.mp4
+2026-03-30 13:30:40 | DEBUG    |   c003: NEU/neutral → [video] damn_meme.mp4
+2026-03-30 13:30:40 | DEBUG    |   c004: POS/surprise → [video] ngac_nhien.mp4
+2026-03-30 13:30:40 | DEBUG    |   c005: POS/surprise → [video] cut-2.mp4
+2026-03-30 13:30:40 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 13:30:40 | SUCCESS  | [DONE] meme_engine
+2026-03-30 13:30:40 | INFO     | [RUN ] video_assembler ...
+2026-03-30 13:30:40 | INFO     | Building video timeline...
+2026-03-30 13:30:40 | INFO     | Total video duration: 54.7s (11 segments)
+2026-03-30 13:30:40 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 13:30:41 | DEBUG    | Pre-rendered meme (video): assets/memes/joy/cuoi_ong_gia.mp4 → /tmp/meme_prerender_4486292634677453992.mp4
+2026-03-30 13:30:42 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_7323369879243679383.mp4
+2026-03-30 13:30:42 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_949477264668336662.mp4
+2026-03-30 13:30:43 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/cut-2.mp4 → /tmp/meme_prerender_6230603949452239375.mp4
+2026-03-30 13:30:43 | INFO     | Running FFmpeg...
+2026-03-30 13:30:43 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpcwebev1h/brand_watermark.png...
+2026-03-30 13:30:53 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (53.4 MB, 54.7s)
+2026-03-30 13:30:53 | SUCCESS  | [DONE] video_assembler
+2026-03-30 13:30:53 | SUCCESS  | === Job complete! ===
+2026-03-30 13:30:53 | SUCCESS  | Output: not yet produced
+2026-03-30 13:30:53 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 13:33:14 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 13:33:14 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 13:33:14 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 13:33:14 | INFO     | Pipeline: tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 13:33:14 | INFO     | [RUN ] tts_engine ...
+2026-03-30 13:33:14 | INFO     | Starting TTS generation...
+2026-03-30 13:33:14 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 13:33:15 | WARNING  | deepseek/deepseek-chat-v3-0324:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-chat-v3-0324:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:33:15 | WARNING  | deepseek/deepseek-r1:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-r1:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:33:18 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 13:33:20 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 13:33:23 | DEBUG    | google/gemma-3-4b-it:free rate-limited, trying next...
+2026-03-30 13:33:23 | WARNING  | microsoft/phi-4:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for microsoft/phi-4:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:33:23 | WARNING  | All models failed — using original texts
+2026-03-30 13:33:23 | INFO     | TTS: topic (68 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:33:25 | INFO     | TTS: c001 (75 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:33:29 | DEBUG    |   -> c001: 4.4s, 18 words
+2026-03-30 13:33:29 | INFO     | TTS: c002 (93 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:33:30 | DEBUG    |   -> c002: 5.7s, 22 words
+2026-03-30 13:33:30 | INFO     | TTS: c003 (94 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:33:31 | DEBUG    |   -> c003: 5.8s, 23 words
+2026-03-30 13:33:31 | INFO     | TTS: c004 (79 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:33:33 | DEBUG    |   -> c004: 5.3s, 19 words
+2026-03-30 13:33:33 | INFO     | TTS: c005 (266 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:33:38 | DEBUG    |   -> c005: 15.7s, 65 words
+2026-03-30 13:33:38 | INFO     | TTS complete: 5/5 comments
+2026-03-30 13:33:38 | SUCCESS  | [DONE] tts_engine
+2026-03-30 13:33:38 | INFO     | [RUN ] caption_sync ...
+2026-03-30 13:33:38 | INFO     | Building karaoke captions...
+2026-03-30 13:33:38 | INFO     | Caption file written: output/jobs/nhi_final/captions/captions.ass (34 dialogue lines)
+2026-03-30 13:33:38 | SUCCESS  | [DONE] caption_sync
+2026-03-30 13:33:38 | INFO     | [RUN ] meme_engine ...
+2026-03-30 13:33:38 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 13:33:38 | DEBUG    |   c001: POS/surprise → [image] surprise_03.png
+2026-03-30 13:33:38 | DEBUG    |   c002: NEU/neutral → [video] anh_da_den_khoc.mp4
+2026-03-30 13:33:38 | DEBUG    |   c003: NEU/neutral → [video] ngac_nhien.mp4
+2026-03-30 13:33:38 | DEBUG    |   c004: POS/surprise → [video] damn_meme.mp4
+2026-03-30 13:33:38 | DEBUG    |   c005: POS/surprise → [image] surprise_05.png
+2026-03-30 13:33:38 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 13:33:38 | SUCCESS  | [DONE] meme_engine
+2026-03-30 13:33:38 | INFO     | [RUN ] video_assembler ...
+2026-03-30 13:33:38 | INFO     | Building video timeline...
+2026-03-30 13:33:38 | INFO     | Total video duration: 58.3s (12 segments)
+2026-03-30 13:33:38 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 13:33:39 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_03.png → /tmp/meme_prerender_5345473993076072432.mp4
+2026-03-30 13:33:40 | DEBUG    | Pre-rendered meme (video): assets/memes/sadness/anh_da_den_khoc.mp4 → /tmp/meme_prerender_9168115993681021319.mp4
+2026-03-30 13:33:40 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_967039924204388081.mp4
+2026-03-30 13:33:41 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_8961839080127594579.mp4
+2026-03-30 13:33:41 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_05.png → /tmp/meme_prerender_3538995294208603386.mp4
+2026-03-30 13:33:41 | INFO     | Running FFmpeg...
+2026-03-30 13:33:41 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpcbm_u1cq/brand_watermark.png...
+2026-03-30 13:33:51 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (56.2 MB, 58.3s)
+2026-03-30 13:33:51 | SUCCESS  | [DONE] video_assembler
+2026-03-30 13:33:51 | SUCCESS  | === Job complete! ===
+2026-03-30 13:33:51 | SUCCESS  | Output: not yet produced
+2026-03-30 13:33:51 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 13:38:20 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 13:38:20 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 13:38:20 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 13:38:20 | INFO     | Pipeline: tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 13:38:20 | INFO     | [RUN ] tts_engine ...
+2026-03-30 13:38:20 | INFO     | Starting TTS generation...
+2026-03-30 13:38:20 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 13:38:21 | WARNING  | deepseek/deepseek-chat-v3-0324:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-chat-v3-0324:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:38:21 | WARNING  | deepseek/deepseek-r1:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for deepseek/deepseek-r1:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:38:25 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 13:38:27 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 13:38:30 | DEBUG    | google/gemma-3-4b-it:free rate-limited, trying next...
+2026-03-30 13:38:30 | WARNING  | microsoft/phi-4:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for microsoft/phi-4:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 13:38:30 | WARNING  | All models failed — using original texts
+2026-03-30 13:38:30 | INFO     | TTS: topic (67 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:38:32 | INFO     | TTS: c001 (75 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:38:32 | DEBUG    |   -> c001: 4.4s, 18 words
+2026-03-30 13:38:32 | INFO     | TTS: c002 (92 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:38:35 | DEBUG    |   -> c002: 5.6s, 22 words
+2026-03-30 13:38:35 | INFO     | TTS: c003 (94 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:38:36 | DEBUG    |   -> c003: 5.8s, 23 words
+2026-03-30 13:38:36 | INFO     | TTS: c004 (79 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 13:38:37 | DEBUG    |   -> c004: 5.3s, 19 words
+2026-03-30 13:38:37 | INFO     | TTS: c005 (266 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 13:38:38 | DEBUG    |   -> c005: 15.7s, 65 words
+2026-03-30 13:38:38 | INFO     | TTS complete: 5/5 comments
+2026-03-30 13:38:38 | SUCCESS  | [DONE] tts_engine
+2026-03-30 13:38:38 | INFO     | [RUN ] caption_sync ...
+2026-03-30 13:38:38 | INFO     | Building karaoke captions...
+2026-03-30 13:38:38 | INFO     | Caption file written: output/jobs/nhi_final/captions/captions.ass (34 dialogue lines)
+2026-03-30 13:38:38 | SUCCESS  | [DONE] caption_sync
+2026-03-30 13:38:38 | INFO     | [RUN ] meme_engine ...
+2026-03-30 13:38:38 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 13:38:38 | DEBUG    |   c001: POS/surprise → [video] dap_may_tinh.mp4
+2026-03-30 13:38:38 | DEBUG    |   c002: NEU/neutral → [video] a_du_giat_minh.mp4
+2026-03-30 13:38:38 | DEBUG    |   c003: NEU/neutral → [image] joy_19.jpg
+2026-03-30 13:38:38 | DEBUG    |   c004: POS/surprise → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 13:38:38 | DEBUG    |   c005: POS/surprise → [video] damn_meme.mp4
+2026-03-30 13:38:38 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 13:38:38 | SUCCESS  | [DONE] meme_engine
+2026-03-30 13:38:38 | INFO     | [RUN ] video_assembler ...
+2026-03-30 13:38:38 | INFO     | Building video timeline...
+2026-03-30 13:38:38 | INFO     | Total video duration: 52.2s (9 segments)
+2026-03-30 13:38:38 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 13:38:39 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_8070394558222648706.mp4
+2026-03-30 13:38:40 | DEBUG    | Pre-rendered meme (image): assets/memes_img/joy/joy_19.jpg → /tmp/meme_prerender_6861349405879291493.mp4
+2026-03-30 13:38:40 | INFO     | Running FFmpeg...
+2026-03-30 13:38:40 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpfgqupu62/brand_watermark.png...
+2026-03-30 13:38:48 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (51.2 MB, 52.2s)
+2026-03-30 13:38:48 | SUCCESS  | [DONE] video_assembler
+2026-03-30 13:38:48 | SUCCESS  | === Job complete! ===
+2026-03-30 13:38:48 | SUCCESS  | Output: not yet produced
+2026-03-30 13:38:48 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-30 13:39:57 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-30 13:39:57 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-30 13:39:57 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 13:39:57 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-30 13:39:57 | INFO     | [RUN ] meme_engine ...
+2026-03-30 13:39:57 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 13:39:57 | DEBUG    |   c001: POS/surprise → [video] ngac_nhien.mp4
+2026-03-30 13:39:57 | DEBUG    |   c002: NEU/neutral → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 13:39:57 | DEBUG    |   c003: NEU/neutral → [video] anh_da_den_khoc.mp4
+2026-03-30 13:39:57 | DEBUG    |   c004: POS/surprise → [video] a_du_giat_minh.mp4
+2026-03-30 13:39:57 | DEBUG    |   c005: POS/surprise → [video] dap_may_tinh.mp4
+2026-03-30 13:39:57 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-30 13:39:57 | SUCCESS  | [DONE] meme_engine
+2026-03-30 13:39:57 | INFO     | [RUN ] video_assembler ...
+2026-03-30 13:39:57 | INFO     | Building video timeline...
+2026-03-30 13:39:57 | INFO     | Total video duration: 51.9s (10 segments)
+2026-03-30 13:39:57 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-30 13:39:57 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_4350313076848047921.mp4
+2026-03-30 13:39:58 | DEBUG    | Pre-rendered meme (video): assets/memes/sadness/anh_da_den_khoc.mp4 → /tmp/meme_prerender_1215351315814434047.mp4
+2026-03-30 13:39:59 | DEBUG    | Pre-rendered meme (video): assets/memes/fear/a_du_giat_minh.mp4 → /tmp/meme_prerender_2654254493705213565.mp4
+2026-03-30 13:39:59 | INFO     | Running FFmpeg...
+2026-03-30 13:39:59 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp7s5qprsh/brand_watermark.png...
+2026-03-30 13:40:09 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (50.8 MB, 51.9s)
+2026-03-30 13:40:09 | SUCCESS  | [DONE] video_assembler
+2026-03-30 13:40:09 | SUCCESS  | === Job complete! ===
+2026-03-30 13:40:09 | SUCCESS  | Output: not yet produced
+2026-03-30 13:40:09 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:18:33 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:18:33 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:18:33 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:18:33 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:18:33 | INFO     | [SKIP] meme_engine (already completed)
+2026-03-31 12:18:33 | INFO     | [SKIP] video_assembler (already completed)
+2026-03-31 12:18:33 | SUCCESS  | === Job complete! ===
+2026-03-31 12:18:33 | SUCCESS  | Output: not yet produced
+2026-03-31 12:18:33 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:18:39 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:18:39 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:18:39 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:18:39 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:18:39 | INFO     | [RUN ] meme_engine ...
+2026-03-31 12:18:39 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-31 12:18:39 | DEBUG    | Loaded original emotions for 5 comments from manual input
+2026-03-31 12:18:39 | DEBUG    | Loaded/updated emotions for 5 comments from raw_content.json
+2026-03-31 12:18:39 | DEBUG    |   c001: using pre-set emotion=['la_len_giai_toa', 'mac_cuoi']
+2026-03-31 12:18:39 | DEBUG    |   c001: NEU/la_len_giai_toa → [video] Dn_uacvDd-E.mp4
+2026-03-31 12:18:39 | DEBUG    |   c002: using pre-set emotion=['so_hai', 'mac_cuoi', 'ngo_ngan']
+2026-03-31 12:18:39 | DEBUG    |   c002: NEU/so_hai → [video] EngWHqlvyDc.mp4
+2026-03-31 12:18:39 | DEBUG    |   c003: using pre-set emotion=['joke_gay', 'kho_tin', 'mac_cuoi']
+2026-03-31 12:18:39 | DEBUG    |   c003: NEU/joke_gay → [video] CIAV86S42NA.mp4
+2026-03-31 12:18:39 | DEBUG    |   c004: using pre-set emotion=['ngac_nhien', 'nguong_mo', 'thong_minh']
+2026-03-31 12:18:39 | DEBUG    |   c004: NEU/ngac_nhien → [video] X4Df96q6dyk.mp4
+2026-03-31 12:18:39 | DEBUG    |   c005: using pre-set emotion=['manh_me', 'nguong_mo', 'la_len_giai_toa']
+2026-03-31 12:18:39 | DEBUG    |   c005: NEU/manh_me → [video] QHop6S5pgMI.mp4
+2026-03-31 12:18:39 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-31 12:18:39 | SUCCESS  | [DONE] meme_engine
+2026-03-31 12:18:39 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:18:39 | INFO     | Building video timeline...
+2026-03-31 12:18:39 | INFO     | Total video duration: 91.0s (12 segments)
+2026-03-31 12:18:39 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:18:42 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/la_len_giai_toa/Dn_uacvDd-E.mp4 → /tmp/meme_prerender_6532763991953960102.mp4
+2026-03-31 12:18:44 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/so_hai/EngWHqlvyDc.mp4 → /tmp/meme_prerender_7289817168209977794.mp4
+2026-03-31 12:18:45 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/joke_gay/CIAV86S42NA.mp4 → /tmp/meme_prerender_7929624417603957058.mp4
+2026-03-31 12:18:46 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/ngac_nhien/X4Df96q6dyk.mp4 → /tmp/meme_prerender_8147358143192998522.mp4
+2026-03-31 12:18:47 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/manh_me/QHop6S5pgMI.mp4 → /tmp/meme_prerender_5499864031979608100.mp4
+2026-03-31 12:18:47 | INFO     | Running FFmpeg...
+2026-03-31 12:18:47 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpcxlkjmwv/brand_watermark.png...
+2026-03-31 12:19:03 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (88.1 MB, 91.0s)
+2026-03-31 12:19:03 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:19:03 | SUCCESS  | === Job complete! ===
+2026-03-31 12:19:03 | SUCCESS  | Output: not yet produced
+2026-03-31 12:19:03 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:22:18 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:22:18 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:22:18 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:22:18 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:22:18 | INFO     | [RUN ] meme_engine ...
+2026-03-31 12:22:27 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-31 12:22:27 | DEBUG    | Loaded original emotions for 5 comments from manual input
+2026-03-31 12:22:27 | DEBUG    | Loaded/updated emotions for 5 comments from raw_content.json
+2026-03-31 12:22:27 | DEBUG    |   c001: using pre-set emotion=['la_len_giai_toa', 'mac_cuoi']
+2026-03-31 12:22:27 | DEBUG    |   c001: NEU/la_len_giai_toa → [video] XGhFSw4nO30.mp4
+2026-03-31 12:22:27 | DEBUG    |   c002: using pre-set emotion=['so_hai', 'mac_cuoi', 'ngo_ngan']
+2026-03-31 12:22:27 | DEBUG    |   c002: NEU/so_hai → [video] l4M3xF7RT84.mp4
+2026-03-31 12:22:27 | DEBUG    |   c003: using pre-set emotion=['joke_gay', 'kho_tin', 'mac_cuoi']
+2026-03-31 12:22:27 | DEBUG    |   c003: NEU/joke_gay → [video] 4hLVy6gFkLo.mp4
+2026-03-31 12:22:27 | DEBUG    |   c004: using pre-set emotion=['ngac_nhien', 'nguong_mo', 'thong_minh']
+2026-03-31 12:22:27 | DEBUG    |   c004: NEU/ngac_nhien → [video] 2Kn2eR3jTGg.mp4
+2026-03-31 12:22:27 | DEBUG    |   c005: using pre-set emotion=['manh_me', 'nguong_mo', 'la_len_giai_toa']
+2026-03-31 12:22:27 | DEBUG    |   c005: NEU/manh_me → [video] lpDo7JEyp5c.mp4
+2026-03-31 12:22:27 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-31 12:22:27 | SUCCESS  | [DONE] meme_engine
+2026-03-31 12:22:27 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:22:27 | INFO     | Building video timeline...
+2026-03-31 12:22:28 | INFO     | Total video duration: 57.0s (12 segments)
+2026-03-31 12:22:28 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:22:28 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/XGhFSw4nO30.mp4 → /tmp/meme_prerender_7126033659288826758.mp4
+2026-03-31 12:22:28 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/l4M3xF7RT84.mp4 → /tmp/meme_prerender_4304249758252851032.mp4
+2026-03-31 12:22:29 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/4hLVy6gFkLo.mp4 → /tmp/meme_prerender_386521532386530078.mp4
+2026-03-31 12:22:29 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/ngac_nhien/2Kn2eR3jTGg.mp4 → /tmp/meme_prerender_7511656070405652259.mp4
+2026-03-31 12:22:30 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/lpDo7JEyp5c.mp4 → /tmp/meme_prerender_17073228168703405.mp4
+2026-03-31 12:22:30 | INFO     | Running FFmpeg...
+2026-03-31 12:22:30 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp9rz78o8n/brand_watermark.png...
+2026-03-31 12:22:40 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (55.1 MB, 57.0s)
+2026-03-31 12:22:40 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:22:40 | SUCCESS  | === Job complete! ===
+2026-03-31 12:22:40 | SUCCESS  | Output: not yet produced
+2026-03-31 12:22:40 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:24:37 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:24:37 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:24:37 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:24:37 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:24:37 | INFO     | [RUN ] meme_engine ...
+2026-03-31 12:24:37 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-31 12:24:37 | DEBUG    | Loaded original emotions for 5 comments from manual input
+2026-03-31 12:24:37 | DEBUG    | Loaded/updated emotions for 5 comments from raw_content.json
+2026-03-31 12:24:37 | DEBUG    |   c001: using pre-set emotion=['la_len_giai_toa', 'mac_cuoi']
+2026-03-31 12:24:37 | DEBUG    |   c001: NEU/la_len_giai_toa → [video] DHIpWczdUnA.mp4
+2026-03-31 12:24:37 | DEBUG    |   c002: using pre-set emotion=['so_hai', 'mac_cuoi', 'ngo_ngan']
+2026-03-31 12:24:37 | DEBUG    |   c002: NEU/so_hai → [video] X_MlcPQaKng.mp4
+2026-03-31 12:24:37 | DEBUG    |   c003: using pre-set emotion=['joke_gay', 'kho_tin', 'mac_cuoi']
+2026-03-31 12:24:37 | DEBUG    |   c003: NEU/joke_gay → [video] i2OWV5stbvc.mp4
+2026-03-31 12:24:37 | DEBUG    |   c004: using pre-set emotion=['ngac_nhien', 'nguong_mo', 'thong_minh']
+2026-03-31 12:24:37 | DEBUG    |   c004: NEU/ngac_nhien → [video] VjEtLWKitkE.mp4
+2026-03-31 12:24:37 | DEBUG    |   c005: using pre-set emotion=['manh_me', 'nguong_mo', 'la_len_giai_toa']
+2026-03-31 12:24:37 | DEBUG    |   c005: NEU/manh_me → [video] bsD7VWZbVf0.mp4
+2026-03-31 12:24:37 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-31 12:24:37 | SUCCESS  | [DONE] meme_engine
+2026-03-31 12:24:37 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:24:37 | INFO     | Building video timeline...
+2026-03-31 12:24:37 | INFO     | Total video duration: 62.2s (12 segments)
+2026-03-31 12:24:37 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:24:38 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/la_len_giai_toa/DHIpWczdUnA.mp4 → /tmp/meme_prerender_234974528148921860.mp4
+2026-03-31 12:24:39 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/X_MlcPQaKng.mp4 → /tmp/meme_prerender_8076313272318296388.mp4
+2026-03-31 12:24:40 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/i2OWV5stbvc.mp4 → /tmp/meme_prerender_7580347266521669688.mp4
+2026-03-31 12:24:40 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/ngac_nhien/VjEtLWKitkE.mp4 → /tmp/meme_prerender_2589266556299826739.mp4
+2026-03-31 12:24:41 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/bsD7VWZbVf0.mp4 → /tmp/meme_prerender_6834243238658568011.mp4
+2026-03-31 12:24:41 | INFO     | Running FFmpeg...
+2026-03-31 12:24:41 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpmld2brfx/brand_watermark.png...
+2026-03-31 12:24:41 | WARNING  | Primary FFmpeg failed, trying fallback...
+2026-03-31 12:24:41 | DEBUG    | FFmpeg stderr: en(t,23.41,29.71)'[v5];[6:v]scale=1080:-1[cs6];[v5][cs6]overlay=x=(W-w)/2:y=500:enable='between(t,32.44,38.29)'[v6];[7:v]scale=1080:-1[cs7];[v6][cs7]overlay=x=(W-w)/2:y=500:enable='between(t,39.76,55.92)'[v7];[8:v]setpts=PTS-STARTPTS+9.8/TB[mv8];[v7][mv8]overlay=x=0:y=0:enable='between(t,9.80,13.67)'[vm8];[8:a]asetpts=PTS-STARTPTS,volume=0.8,adelay=9800|9800,apad=whole_dur=62.22219900000001[mema8];[9:v]setpts=PTS-STARTPTS+19.820533/TB[mv9];[vm8][mv9]overlay=x=0:y=0:enable='between(t,19.82,23.41)'[vm9];[9:a]asetpts=PTS-STARTPTS,volume=0.8,adelay=19820|19820,apad=whole_dur=62.22219900000001[mema9];[10:v]setpts=PTS-STARTPTS+29.707433/TB[mv10];[vm9][mv10]overlay=x=0:y=0:enable='between(t,29.71,32.44)'[vm10];[10:a]asetpts=PTS-STARTPTS,volume=0.8,adelay=29707|29707,apad=whole_dur=62.22219900000001[mema10];[11:v]setpts=PTS-STARTPTS+38.290766000000005/TB[mv11];[vm10][mv11]overlay=x=0:y=0:enable='between(t,38.29,39.76)'[vm11];[11:a]asetpts=PTS-STARTPTS,volume=0.8,adelay=38290|38290,apad=whole_dur=62.22219900000001[mema11];[12:v]setpts=PTS-STARTPTS+55.91889900000001/TB[mv12];[vm11][mv12]overlay=x=0:y=0:enable='between(t,55.92,59.22)'[vm12];[12:a]asetpts=PTS-STARTPTS,volume=0.8,adelay=55918|55918,apad=whole_dur=62.22219900000001[mema12];[13:a]atrim=duration=62.22219900000001,asetpts=PTS-STARTPTS,volume=0.6,afade=t=in:st=0:d=1.5,afade=t=out:st=60.22219900000001:d=2[bgm_out];[14:a]adelay=0|0,apad=whole_dur=62.22219900000001[tts_14];[15:a]adelay=4900|4900,apad=whole_dur=62.22219900000001[tts_15];[16:a]adelay=13670|13670,apad=whole_dur=62.22219900000001[tts_16];[17:a]adelay=23407|23407,apad=whole_dur=62.22219900000001[tts_17];[18:a]adelay=32440|32440,apad=whole_dur=62.22219900000001[tts_18];[19:a]adelay=39758|39758,apad=whole_dur=62.22219900000001[tts_19];[mema8][mema9][mema10][mema11][mema12][bgm_out][tts_14][tts_15][tts_16][tts_17][tts_18][tts_19]amix=inputs=12:duration=longest:normalize=0[audio_out] matches no streams.
+Error binding filtergraph inputs/outputs: Invalid argument
+
+2026-03-31 12:24:41 | WARNING  | Using fallback video assembly (black background, audio only)
+2026-03-31 12:24:45 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (1.1 MB, 62.2s)
+2026-03-31 12:24:45 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:24:45 | SUCCESS  | === Job complete! ===
+2026-03-31 12:24:45 | SUCCESS  | Output: not yet produced
+2026-03-31 12:24:45 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:25:34 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:25:34 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:25:34 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:25:34 | INFO     | Pipeline: video_assembler
+2026-03-31 12:25:34 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:25:34 | INFO     | Building video timeline...
+2026-03-31 12:25:34 | INFO     | Total video duration: 62.2s (12 segments)
+2026-03-31 12:25:34 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:25:35 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/la_len_giai_toa/DHIpWczdUnA.mp4 → /tmp/meme_prerender_3913430880713491405.mp4
+2026-03-31 12:25:36 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/X_MlcPQaKng.mp4 → /tmp/meme_prerender_6395503489233096844.mp4
+2026-03-31 12:25:36 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/i2OWV5stbvc.mp4 → /tmp/meme_prerender_5525680928164991724.mp4
+2026-03-31 12:25:37 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/ngac_nhien/VjEtLWKitkE.mp4 → /tmp/meme_prerender_2957418717736456243.mp4
+2026-03-31 12:25:37 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/phan_khich/bsD7VWZbVf0.mp4 → /tmp/meme_prerender_3459548089379237935.mp4
+2026-03-31 12:25:37 | INFO     | Running FFmpeg...
+2026-03-31 12:25:37 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp8_55otco/brand_watermark.png...
+2026-03-31 12:25:48 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (60.5 MB, 62.2s)
+2026-03-31 12:25:48 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:25:48 | SUCCESS  | === Job complete! ===
+2026-03-31 12:25:48 | SUCCESS  | Output: not yet produced
+2026-03-31 12:25:48 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:36:56 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:36:56 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:36:56 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:36:56 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:36:56 | INFO     | [RUN ] meme_engine ...
+2026-03-31 12:36:57 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-31 12:36:57 | DEBUG    | Loaded original emotions for 5 comments from manual input
+2026-03-31 12:36:57 | DEBUG    | Loaded/updated emotions for 5 comments from raw_content.json
+2026-03-31 12:36:57 | INFO     | Manual meme overrides found for: ['c001', 'c002', 'c003', 'c004', 'c005']
+2026-03-31 12:36:57 | DEBUG    |   c001: using pre-set emotion=['la_len_giai_toa', 'mac_cuoi']
+2026-03-31 12:36:57 | INFO     |   c001: manual meme_clip=N05Is9Np81I.mp4
+2026-03-31 12:36:57 | DEBUG    |   c002: using pre-set emotion=['so_hai', 'mac_cuoi', 'ngo_ngan']
+2026-03-31 12:36:57 | INFO     |   c002: manual meme_clip=v6MvOVK5a3s.mp4
+2026-03-31 12:36:57 | DEBUG    |   c003: using pre-set emotion=['joke_gay', 'kho_tin', 'mac_cuoi']
+2026-03-31 12:36:57 | INFO     |   c003: manual meme_clip=CIAV86S42NA.mp4
+2026-03-31 12:36:57 | DEBUG    |   c004: using pre-set emotion=['ngac_nhien', 'nguong_mo', 'thong_minh']
+2026-03-31 12:36:57 | INFO     |   c004: manual meme_clip=N05Is9Np81I.mp4
+2026-03-31 12:36:57 | DEBUG    |   c005: using pre-set emotion=['manh_me', 'nguong_mo', 'la_len_giai_toa']
+2026-03-31 12:36:57 | INFO     |   c005: manual meme_clip=Dn_uacvDd-E-replace.mp4
+2026-03-31 12:36:57 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-31 12:36:57 | SUCCESS  | [DONE] meme_engine
+2026-03-31 12:36:57 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:36:57 | INFO     | Building video timeline...
+2026-03-31 12:36:57 | INFO     | Total video duration: 59.9s (12 segments)
+2026-03-31 12:36:57 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:36:58 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/thong_minh/N05Is9Np81I.mp4 → /tmp/meme_prerender_3731369093743114259.mp4
+2026-03-31 12:36:58 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/bat_luc/v6MvOVK5a3s.mp4 → /tmp/meme_prerender_7424132562061721635.mp4
+2026-03-31 12:36:59 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/joke_gay/CIAV86S42NA.mp4 → /tmp/meme_prerender_4951149261812294218.mp4
+2026-03-31 12:36:59 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/la_len_giai_toa/Dn_uacvDd-E-replace.mp4 → /tmp/meme_prerender_1889845269462245526.mp4
+2026-03-31 12:36:59 | INFO     | Running FFmpeg...
+2026-03-31 12:36:59 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmpv4fhx607/brand_watermark.png...
+2026-03-31 12:37:10 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (58.6 MB, 59.9s)
+2026-03-31 12:37:10 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:37:10 | SUCCESS  | === Job complete! ===
+2026-03-31 12:37:10 | SUCCESS  | Output: not yet produced
+2026-03-31 12:37:10 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json
+2026-03-31 12:40:08 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/nhi_final.log
+2026-03-31 12:40:08 | INFO     | === Brainrot Video Factory | job_id=nhi_final | lang=vi ===
+2026-03-31 12:40:08 | INFO     | Device: mps | TTS: edge_tts
+2026-03-31 12:40:08 | INFO     | Pipeline: meme_engine -> video_assembler
+2026-03-31 12:40:08 | INFO     | [RUN ] meme_engine ...
+2026-03-31 12:40:08 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-31 12:40:08 | DEBUG    | Loaded original emotions for 5 comments from manual input
+2026-03-31 12:40:08 | DEBUG    | Loaded/updated emotions for 5 comments from raw_content.json
+2026-03-31 12:40:08 | INFO     | Manual meme overrides found for: ['c001', 'c002', 'c003', 'c004', 'c005']
+2026-03-31 12:40:08 | DEBUG    |   c001: using pre-set emotion=['la_len_giai_toa', 'mac_cuoi']
+2026-03-31 12:40:08 | INFO     |   c001: manual meme_clip=N05Is9Np81I.mp4
+2026-03-31 12:40:08 | DEBUG    |   c002: using pre-set emotion=['so_hai', 'mac_cuoi', 'ngo_ngan']
+2026-03-31 12:40:08 | INFO     |   c002: manual meme_clip=v6MvOVK5a3s.mp4
+2026-03-31 12:40:08 | DEBUG    |   c003: using pre-set emotion=['joke_gay', 'kho_tin', 'mac_cuoi']
+2026-03-31 12:40:08 | INFO     |   c003: manual meme_clip=CIAV86S42NA.mp4
+2026-03-31 12:40:08 | DEBUG    |   c004: using pre-set emotion=['ngac_nhien', 'nguong_mo', 'thong_minh']
+2026-03-31 12:40:08 | INFO     |   c004: manual meme_clip=1wf8AOu6lqk.mp4
+2026-03-31 12:40:08 | DEBUG    |   c005: using pre-set emotion=['manh_me', 'nguong_mo', 'la_len_giai_toa']
+2026-03-31 12:40:08 | INFO     |   c005: manual meme_clip=Dn_uacvDd-E-replace.mp4
+2026-03-31 12:40:08 | INFO     | Meme/SFX assigned to 5 comments
+2026-03-31 12:40:08 | SUCCESS  | [DONE] meme_engine
+2026-03-31 12:40:08 | INFO     | [RUN ] video_assembler ...
+2026-03-31 12:40:08 | INFO     | Building video timeline...
+2026-03-31 12:40:08 | INFO     | Total video duration: 57.4s (12 segments)
+2026-03-31 12:40:08 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4
+2026-03-31 12:40:09 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/thong_minh/N05Is9Np81I.mp4 → /tmp/meme_prerender_1953633013599551331.mp4
+2026-03-31 12:40:09 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/bat_luc/v6MvOVK5a3s.mp4 → /tmp/meme_prerender_7933789386195194036.mp4
+2026-03-31 12:40:10 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/joke_gay/CIAV86S42NA.mp4 → /tmp/meme_prerender_1789177505303401975.mp4
+2026-03-31 12:40:10 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/tu_hao/1wf8AOu6lqk.mp4 → /tmp/meme_prerender_2348449232126703971.mp4
+2026-03-31 12:40:10 | DEBUG    | Pre-rendered meme (video): assets/memes_emotions/la_len_giai_toa/Dn_uacvDd-E-replace.mp4 → /tmp/meme_prerender_7071459085051551650.mp4
+2026-03-31 12:40:10 | INFO     | Running FFmpeg...
+2026-03-31 12:40:10 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part03.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp7uvr98dk/brand_watermark.png...
+2026-03-31 12:40:20 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/final_video.mp4 (55.9 MB, 57.4s)
+2026-03-31 12:40:20 | SUCCESS  | [DONE] video_assembler
+2026-03-31 12:40:20 | SUCCESS  | === Job complete! ===
+2026-03-31 12:40:20 | SUCCESS  | Output: not yet produced
+2026-03-31 12:40:20 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/nhi_final/video_config.json

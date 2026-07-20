@@ -1,0 +1,77 @@
+2026-03-30 01:49:53 | INFO     | Logging to /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/logs/tretre_v2.log
+2026-03-30 01:49:53 | INFO     | === Brainrot Video Factory | job_id=tretre_v2 | lang=vi ===
+2026-03-30 01:49:53 | INFO     | Device: mps | TTS: edge_tts
+2026-03-30 01:49:53 | INFO     | Pipeline: scraper -> card_renderer -> tts_engine -> caption_sync -> meme_engine -> video_assembler
+2026-03-30 01:49:53 | INFO     | [RUN ] scraper ...
+2026-03-30 01:49:53 | INFO     | Scraping platform: threads
+2026-03-30 01:49:54 | INFO     | Loaded 18 cookies
+2026-03-30 01:50:01 | INFO     | Topic: @thanhtam_103829 — Topic : bạn kể tôi ko phán xét : Hãy kể chuyện trẻ trâu nhất
+2026-03-30 01:50:16 | INFO     | Scraped 4 comments
+2026-03-30 01:50:16 | INFO     | Scraped 4 comments
+2026-03-30 01:50:16 | SUCCESS  | [DONE] scraper
+2026-03-30 01:50:16 | INFO     | [RUN ] card_renderer ...
+2026-03-30 01:50:16 | INFO     | Rendering 5 cards (Threads UI style)...
+2026-03-30 01:50:16 | INFO     | Fetching avatar images...
+2026-03-30 01:50:16 | DEBUG    | Avatar fetched for topic
+2026-03-30 01:50:16 | DEBUG    | Avatar fetched for c001
+2026-03-30 01:50:16 | DEBUG    | Avatar fetched for c002
+2026-03-30 01:50:16 | DEBUG    | Avatar fetched for c003
+2026-03-30 01:50:16 | DEBUG    | Avatar fetched for c004
+2026-03-30 01:50:16 | DEBUG    | Fetching 1 image(s) for topic
+2026-03-30 01:50:16 | DEBUG    | Fetching 1 image(s) for c003
+2026-03-30 01:50:16 | DEBUG    | Fetching 1 image(s) for c004
+2026-03-30 01:50:17 | DEBUG    | Rendered card: output/jobs/tretre_v2/cards/topic.png
+2026-03-30 01:50:17 | DEBUG    | Rendered card: output/jobs/tretre_v2/cards/c001.png
+2026-03-30 01:50:18 | DEBUG    | Rendered card: output/jobs/tretre_v2/cards/c002.png
+2026-03-30 01:50:18 | DEBUG    | Rendered card: output/jobs/tretre_v2/cards/c003.png
+2026-03-30 01:50:18 | DEBUG    | Rendered card: output/jobs/tretre_v2/cards/c004.png
+2026-03-30 01:50:18 | INFO     | Rendered 5 cards to output/jobs/tretre_v2/cards
+2026-03-30 01:50:18 | SUCCESS  | [DONE] card_renderer
+2026-03-30 01:50:18 | INFO     | [RUN ] tts_engine ...
+2026-03-30 01:50:18 | INFO     | Starting TTS generation...
+2026-03-30 01:50:18 | INFO     | Normalizing texts (expand abbreviations, remove emoticons)...
+2026-03-30 01:50:22 | DEBUG    | meta-llama/llama-3.3-70b-instruct:free rate-limited, trying next...
+2026-03-30 01:50:24 | DEBUG    | google/gemma-3-27b-it:free rate-limited, trying next...
+2026-03-30 01:50:27 | DEBUG    | google/gemma-3-12b-it:free rate-limited, trying next...
+2026-03-30 01:50:27 | WARNING  | mistralai/mistral-7b-instruct:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for mistralai/mistral-7b-instruct:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:50:27 | WARNING  | qwen/qwen3-8b:free failed: Error code: 404 - {'error': {'message': 'No endpoints found for qwen/qwen3-8b:free.', 'code': 404}, 'user_id': 'user_3962K3yBa76BvUSIm3KiNqynLjG'}
+2026-03-30 01:50:27 | WARNING  | All models failed — using original texts
+2026-03-30 01:50:27 | INFO     | TTS: topic (99 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:50:29 | INFO     | TTS: c001 (48 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:50:30 | DEBUG    |   -> c001: 3.9s, 11 words
+2026-03-30 01:50:30 | INFO     | TTS: c002 (457 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:50:40 | DEBUG    |   -> c002: 26.8s, 111 words
+2026-03-30 01:50:40 | INFO     | TTS: c003 (35 chars) voice=vi-VN-HoaiMyNeural
+2026-03-30 01:50:41 | DEBUG    |   -> c003: 2.3s, 8 words
+2026-03-30 01:50:41 | INFO     | TTS: c004 (46 chars) voice=vi-VN-NamMinhNeural
+2026-03-30 01:50:43 | DEBUG    |   -> c004: 3.2s, 10 words
+2026-03-30 01:50:43 | INFO     | TTS complete: 4/4 comments
+2026-03-30 01:50:43 | SUCCESS  | [DONE] tts_engine
+2026-03-30 01:50:43 | INFO     | [RUN ] caption_sync ...
+2026-03-30 01:50:43 | INFO     | Building karaoke captions...
+2026-03-30 01:50:43 | INFO     | Caption file written: output/jobs/tretre_v2/captions/captions.ass (34 dialogue lines)
+2026-03-30 01:50:43 | SUCCESS  | [DONE] caption_sync
+2026-03-30 01:50:43 | INFO     | [RUN ] meme_engine ...
+2026-03-30 01:50:43 | INFO     | Analyzing sentiment and selecting memes...
+2026-03-30 01:50:43 | DEBUG    |   c001: POS/surprise → [video] ket_thuc_hai_huoc.mp4
+2026-03-30 01:50:43 | DEBUG    |   c002: POS/surprise → [image] surprise_03.png
+2026-03-30 01:50:43 | DEBUG    |   c003: POS/joy → [video] damn_meme.mp4
+2026-03-30 01:50:43 | DEBUG    |   c004: POS/surprise → [video] ngac_nhien.mp4
+2026-03-30 01:50:43 | INFO     | Meme/SFX assigned to 4 comments
+2026-03-30 01:50:43 | SUCCESS  | [DONE] meme_engine
+2026-03-30 01:50:43 | INFO     | [RUN ] video_assembler ...
+2026-03-30 01:50:43 | INFO     | Background: assets/backgrounds/minecraft-parkour/part31.mp4
+2026-03-30 01:50:43 | INFO     | Building video timeline...
+2026-03-30 01:50:43 | INFO     | Total video duration: 62.7s (10 segments)
+2026-03-30 01:50:43 | INFO     | Output: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/tretre_v2/final_video.mp4
+2026-03-30 01:50:44 | DEBUG    | Pre-rendered meme (video): assets/memes/neutral/ket_thuc_hai_huoc.mp4 → /tmp/meme_prerender_3518755098061194104.mp4
+2026-03-30 01:50:44 | DEBUG    | Pre-rendered meme (image): assets/memes_img/surprise/surprise_03.png → /tmp/meme_prerender_8312840223572611475.mp4
+2026-03-30 01:50:45 | DEBUG    | Pre-rendered meme (video): assets/memes/disgust/damn_meme.mp4 → /tmp/meme_prerender_3789851135483793605.mp4
+2026-03-30 01:50:46 | DEBUG    | Pre-rendered meme (video): assets/memes/surprise/ngac_nhien.mp4 → /tmp/meme_prerender_3711656689117332998.mp4
+2026-03-30 01:50:46 | INFO     | Running FFmpeg...
+2026-03-30 01:50:46 | DEBUG    | FFmpeg cmd: ffmpeg -y -stream_loop -1 -i assets/backgrounds/minecraft-parkour/part31.mp4 -loop 1 -i /var/folders/qp/w_r679sn3yxc7mqsvj5bh_km0000gn/T/tmp70ixhirs/brand_watermark.png...
+2026-03-30 01:50:57 | INFO     | Video assembled: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/tretre_v2/final_video.mp4 (59.6 MB, 62.7s)
+2026-03-30 01:50:57 | SUCCESS  | [DONE] video_assembler
+2026-03-30 01:50:57 | SUCCESS  | === Job complete! ===
+2026-03-30 01:50:57 | SUCCESS  | Output: not yet produced
+2026-03-30 01:50:57 | INFO     | video_config saved to: /Users/admin/Documents/MorcaLabs/thread-story-viral-video/brainrot_factory/output/jobs/tretre_v2/video_config.json

@@ -46,39 +46,161 @@ def _strip_emoticons(text: str) -> str:
 
 # Order matters: longer/more-specific first to avoid partial replacement
 _ABBREV_MAP = [
-    # Pronouns (context-sensitive — single letter surrounded by spaces)
+    # --- TTS pronunciation fixes (multi-word phrases, must come first) ---
+    (r'\bDm\b', 'Định mệnh'),          # sentence-start Dm = expletive/fate (uppercase D)
+
+    # --- Longer/more-specific patterns first ---
+    (r'\bkphai\b', 'không phải'),
+    (r'\bkbh\b', 'không bao giờ'),
+    (r'\bkbao\b', 'không bao giờ'),
+    (r'\bnhma\b', 'nhưng mà'),
+    (r'\bnmk\b', 'nhưng mà'),
+    (r'\bnma\b', 'nhưng mà'),
+    (r'\bnm\b', 'nhưng mà'),
+    (r'\bntd\b', 'nói thật đó'),
+    (r'\bntn\b', 'như thế nào'),
+    (r'\bmqh\b', 'mối quan hệ'),
+    (r'\bctct\b', 'và các thứ khác'),
+    (r'\bctg\b', 'và những thứ'),
+    (r'\bvvv\b', 'và vân vân'),
+    (r'\bkhum\b', 'không'),
+    (r'\bbgio\b', 'bây giờ'),
+    (r'\bbgio\b', 'bây giờ'),
+    (r'\bhmu\b', 'liên hệ mình'),
+    (r'\bidk\b', 'không biết'),
+    (r'\bngl\b', 'nói thật là'),
+    (r'\bnvl\b', 'nghe vãi'),
+    (r'\bbtw\b', 'nhân tiện'),
+    (r'\bpov\b', 'góc nhìn của'),
+    (r'\bimo\b', 'theo mình'),
+    (r'\bvcl\b', 'vãi'),
+    (r'\bvkl\b', 'vãi'),
+    (r'\bomg\b', 'ôi trời'),
+    (r'\bwtf\b', 'ôi trời'),
+    (r'\blol\b', 'haha'),
+    (r'\blmao\b', ''),
+    (r'\bbvs\b', 'băng vệ sinh'),
+
+    # --- Pronouns ---
+    (r'\bmng\b', 'mọi người'),
+    (r'\bmn\b', 'mọi người'),
+    (r'\bmk\b', 'mình'),
+    (r'\bbn\b', 'bạn'),
+    (r'\bng\b', 'người'),
+    (r'\bae\b', 'anh em'),
+
+    # --- Negation / core words (longer first) ---
+    (r'\bkông\b', 'không'),
+    (r'\bkhg\b', 'không'),
+    (r'\bkp\b', 'không phải'),
+    (r'\bkg\b', 'không'),
+    (r'\bkh\b', 'không'),
+    (r'\bko\b', 'không'),
+    (r'\bkc\b', 'không có'),
+    (r'\bkco\b', 'không có'),
+    (r'\bkb\b', 'không biết'),
+    (r'\bkq\b', 'kết quả'),
+
+    # --- Common short verbs / words ---
+    (r'\bđc\b', 'được'),
+    (r'\bdc\b', 'được'),
+    (r'\bdk\b', 'được'),
+    (r'\btrc\b', 'trước'),
+    (r'\bvs\b', 'với'),
+    (r'\bnma\b', 'nhưng mà'),
+    (r'\brr\b', 'rồi rồi'),
+    (r'\bnr\b', 'nhà rồi'),
+    (r'\bbt\b', 'bình thường'),
+    (r'\bbth\b', 'bình thường'),
+    (r'\bbthuong\b', 'bình thường'),
+    (r'\bhqua\b', 'hôm qua'),
+    (r'\bhna\b', 'hôm nay'),
+    (r'\bms\b', 'mới'),
+    (r'\bmh\b', 'mình'),
+    (r'\bvay\b', 'vậy'),
+    (r'\bna\b', 'nha'),
+    (r'\biz\b', 'vậy'),
+    (r'\bxog\b', 'xong'),
+    (r'\btx\b', 'thường xuyên'),
+    (r'\bntin\b', 'nhắn tin'),
+    (r'\bnt\b', 'nhắn tin'),
+    (r'\bib\b', 'nhắn tin'),
+    (r'\bdm\b', 'Định mệnh'),
+    (r'\bdjt\b', 'địt'),
+    (r'\bfr\b', 'thật ra'),
+    (r'\bty\b', 'cảm ơn'),
+    (r'\bthank\b', 'cảm ơn'),
+    (r'\bck\b', 'chuyển khoản'),
+    (r'\bvk\b', 'vợ'),
+    (r'\bbf\b', 'bạn trai'),
+    (r'\bgf\b', 'bạn gái'),
+    (r'\blz\b', 'lười'),
+    (r'\bvl\b', 'vãi'),
+    (r'\bvc\b', 'vãi'),
+    (r'\bttoan\b', 'thanh toán'),
+
+    # --- School / class ---
+    (r'\blp(\d)\b', r'lớp \1'),    # lp1→lớp 1, lp2→lớp 2
+    (r'\blp\b', 'lớp'),
+    (r'\bcp\b', 'cấp'),
+
+    # --- Compound abbreviations common in teen chat ---
+    (r'\bsao\b', 'sao'),           # already full
+    (r'\bsr\b', 'xin lỗi'),
+    (r'\bsorry\b', 'xin lỗi'),
+    (r'\btrl\b', 'trả lời'),
+    (r'\brep\b', 'trả lời'),
+    (r'\breply\b', 'trả lời'),
+    (r'\bnc\b', 'nước'),
+    (r'\bcmt\b', 'bình luận'),
+    (r'\bcmt\b', 'bình luận'),
+    (r'\blike\b', 'thích'),
+    (r'\bshare\b', 'chia sẻ'),
+    (r'\bpost\b', 'bài viết'),
+    (r'\bstory\b', 'tin'),
+    (r'\bfollow\b', 'theo dõi'),
+    (r'\bunfollow\b', 'bỏ theo dõi'),
+    (r'\bblock\b', 'chặn'),
+
+    # --- Abbreviated compound words ---
+    (r'\bcgai\b', 'con gái'),
+    (r'\bctrai\b', 'con trai'),
+    (r'\bcno\b', 'chúng nó'),
+    (r'\bcai\b', 'con ai'),
+    (r'\bbff\b', 'bạn thân'),
+    (r'\bfam\b', 'gia đình'),
+    (r'\bnyc\b', 'người yêu cũ'),
+    (r'\bthg\b', 'thằng'),
+    (r'\btrg\b', 'trường'),
+    (r'\bwc\b', 'nhà vệ sinh'),
+    (r'\bô\b', 'ông'),
+
+    # --- Single-letter pronouns (last — most ambiguous) ---
     (r'\bt\b', 'tôi'),
     (r'\bmk\b', 'mình'),
     (r'\bm\b', 'mình'),
     (r'\ba\b', 'anh'),
     (r'\be\b', 'em'),
     (r'\bc\b', 'chị'),
-    (r'\bmn\b', 'mọi người'),
-    (r'\bbn\b', 'bạn'),
-    # Common words
-    (r'\btrc\b', 'trước'),
-    (r'\bsau\b', 'sau'),         # already full word, skip
+    (r'\bb\b', 'bạn'),
+    (r'\bu\b', 'ừ'),
+    (r'\buh\b', 'ừ'),
+
+    # --- Single letters that are words ---
     (r'\br\b', 'rồi'),
+    (r'\bro\b', 'rồi'),
+    (r'\bv\b', 'vậy'),
+    (r'\bh\b', 'giờ'),
+    (r'\bhn\b', 'hôm nay'),
+    (r'\bbh\b', 'bây giờ'),
+    (r'\bgio\b', 'giờ'),
     (r'\bk\b', 'không'),
-    (r'\bko\b', 'không'),
-    (r'\bkg\b', 'không'),
-    (r'\bđc\b', 'được'),
-    (r'\bdc\b', 'được'),
-    (r'\bvs\b', 'với'),
-    (r'\bntn\b', 'như thế nào'),
-    (r'\bnt\b', 'nhắn tin'),
-    (r'\bib\b', 'nhắn tin'),
-    (r'\bck\b', 'chồng'),
-    (r'\bvk\b', 'vợ'),
-    (r'\bbf\b', 'bạn trai'),
-    (r'\bgf\b', 'bạn gái'),
-    (r'\bbtw\b', 'nhân tiện'),
-    # Products / internet slang
-    (r'\bbvs\b', 'băng vệ sinh'),
-    (r'\bomg\b', 'ôi trời'),
-    (r'\bwtf\b', 'ôi trời'),
-    (r'\blol\b', 'haha'),
-    (r'\bhmu\b', 'liên hệ mình'),
+    (r'\bcn\b', 'còn'),
+    (r'\bcg\b', 'cũng'),
+    (r'\bcx\b', 'cũng'),
+    (r'\bth\b', 'thôi'),
+    (r'\bổ\b', 'ổng'),
+    (r'\bí\b', 'ấy'),
 ]
 
 _ABBREV_RE = [(re.compile(pat, re.IGNORECASE), repl) for pat, repl in _ABBREV_MAP]
@@ -96,12 +218,12 @@ def _expand_abbreviations(text: str) -> str:
 
 _OPENROUTER_KEY = os.getenv("OPENROUTER_API_KEY", "")
 _MODELS = [
-    # Large, multilingual — best for Vietnamese (try these first)
+    "deepseek/deepseek-chat-v3-0324:free",
+    "deepseek/deepseek-r1:free",
     "meta-llama/llama-3.3-70b-instruct:free",
     "google/gemma-3-27b-it:free",
-    "openai/gpt-oss-120b:free",
-    "nousresearch/hermes-3-llama-3.1-405b:free",
-    "google/gemma-3-12b-it:free",
+    "google/gemma-3-4b-it:free",
+    "microsoft/phi-4:free",
 ]
 
 _SYSTEM_PROMPT = """Bạn là công cụ chuẩn hoá văn bản tiếng Việt trước khi đưa vào TTS (text-to-speech).
